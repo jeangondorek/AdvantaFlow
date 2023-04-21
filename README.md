@@ -14,12 +14,16 @@ e rodar a imagem dentro do docker
 
 Aconfiguração da porta do container do postgres ficou na porta 5433.(5433 pois temos o postgres e pgadmin instalados rodando na 5432)
 
-#### Node já inciado com o npm. Dependencias instaladas.
-- Express
-- 
+
+#### Criando projeto node
+Nesse momento se cria o projeto node, inicializa o git e o npm. Instala dependencias e cria os arquivos dockerfile e configura ele. 
+A configuração aplicada foi a forma "padrão" para projetos.
 
 #### Faça o build da imagem docker na sua máquina.
 - Nome é o nome da imagem, diretório se refere onde está o arquivo Dockerfile, caso no mesmo diretorio que está rodando somente usar (.)
 - ```docker build -t NOME ./DIRETORIO```
 - Rodando projeto, deve ser o mesmo usado na build
 - ```docker run -p 3000:3000 -d NOME```
+
+#### Node já inciado com o npm. Dependencias instaladas.
+- Express
