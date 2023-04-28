@@ -6,4 +6,4 @@ app.get("/", (req, res) => {
     res.send("Hi Docker!!!");
 });
 
-app.listen(3001);
+app.listen(3000);
