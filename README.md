@@ -31,4 +31,4 @@ A configuração aplicada foi a forma "padrão" para projetos.
 - Express
 
 #### Limpando docker
-- ```docker sistem prune```
+- ```docker system prune```
