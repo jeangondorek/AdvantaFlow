@@ -29,3 +29,6 @@ A configuração aplicada foi a forma "padrão" para projetos.
 
 #### Node já inciado com o npm. Dependencias instaladas.
 - Express
+
+#### Limpando docker
+- ```docker sistem prune```
