@@ -1,5 +1,7 @@
 # Descrição do projeto
 
+Tutorial docker https://www.youtube.com/watch?v=np_vyd7QlXk&ab_channel=MatheusBattisti-HoradeCodar
+
 Com o docker já isntalado e o docker-compose tamém
 Caso use linux consultar tutorial
 https://docs.docker.com/desktop/install/ubuntu/
