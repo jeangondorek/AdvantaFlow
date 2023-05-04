@@ -41,4 +41,4 @@ A configuração aplicada foi a forma "padrão" para projetos.
 
 #### Rodar sem o docker
  - É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.js` 
- - e executando o comando `npm start`.
+ - e executando o comando `npm start`
