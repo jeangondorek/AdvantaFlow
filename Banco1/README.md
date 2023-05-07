@@ -1,0 +1,12 @@
+# Requisitos funcionais
+
+| ID  | REQUISITO FUNCIONAL  | TIPO DE USUÁRIO DO SISTEMA  | DESCRIÇÃO DO REQUISITO FUNCIONA  |
+|---|---|---|---|
+| RF01  | Manter Usuário  | Administrador  | O sistema deverá permitir que somente o administrador cadastre usuários na plataforma. Os dados necessários são: nome, cpf, oab(se advogado), email, fone, perfil (ex: perfil advogado, estagiário), senha e confirmação de senha. Ao gravar o sistema deverá registrar a data do cadastro e adicionar um campo de status(ativo/inativo).  |
+|  RF02 |  Manter Perfil | Administrador  | Cada perfil tem regras de permissões(o que pode ou não ser acessado). É alterado pelo administrador do sistema.  |
+| RF03  | Efetuar Login  | Usuário  | Para acessar o sistema o usuário deverá informar seu email ou username e senha. As informações serão apresentadas de acordo com o perfil. Deverão ser registradas todas as operações dos usuários do sistema, mantendo histórico de logs na plataforma, e permitindo voltar à versão anterior.|
+|RF04 |Esqueci minha senha|Usuário|Caso o usuário esqueça a senha poderá solicitar o cadastro de uma nova senha através da tela de login. O usuário deve informar o e-mail, caso exista no banco de dados do sistema, deve ser feito link via email para o cadastro da nova senha. O link irá gerar uma tela onde ele poderá colocar a senha e confirmar a senha.|
+|RF05|Sair do sistema|Usuário|Permitir usuário deslogar do sistema, impossibilitando qualquer acesso às funcionalidades até que um novo login seja realizado|
+|RF06|Tela inicial|Perfil|Deve conter um menu possibilitando navegar através das “telas” existentes no sistema. Terá um dashboard onde será possível visualizar as informações referente aos processos (Quantidade de processos concluídos, em andamento…) e também referente às tarefas relacionadas a cada processo.|
+|RF07|Manter processo|Usuário|Para se criar um novo processo o usuário deve possuir OB. Cada processo possui um número identificador, título, cliente, criação de tags para identificar o assunto do processo (disputas de propriedades, cobrança de aluguel, despejos, entre outros tipos de tags que serão criadas pelo usuário).|
+|RF08|Manter tarefa|Usuário|Para criar uma nova tarefa deve ser necessário existir um processo criado, esse processo pode estar com seu status como novo ou em andamento, processos finalizados não será possível criar uma tarefa vinculado ao processo. Cada tarefa poderá conter uma descrição contendo prazos, decisões e outras informações relevantes. Também vai possibilitar anexar arquivos a cada tarefa.|
