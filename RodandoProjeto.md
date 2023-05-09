@@ -30,6 +30,7 @@ A configuração aplicada foi a forma "padrão" para projetos.
 - Nodemon
 - Typescript
 - jsonwebtoken
+- pgpromise
 
 #### Rodar sem o docker, em dev
  - É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.js` 
