@@ -28,7 +28,15 @@ A configuração aplicada foi a forma "padrão" para projetos.
 #### Node já inciado com o npm. Dependencias instaladas.
 - Express
 - Nodemon
+- Typescript
+- jsonwebtoken
 
+#### Rodar sem o docker, em dev
+ - É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.js` 
+ - e executando o comando `npm start`
+
+
+## Para ser usado em produção
 #### Faça o build da imagem docker na sua máquina.
 - Nome é o nome da imagem, diretório se refere onde está o arquivo Dockerfile, caso no mesmo diretorio que está rodando somente usar (.)
 - `docker build -t NOME ./DIRETORIO`
@@ -37,8 +45,3 @@ A configuração aplicada foi a forma "padrão" para projetos.
 
 #### Limpando docker
 - `docker system prune`
-
-
-#### Rodar sem o docker
- - É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.js` 
- - e executando o comando `npm start`
