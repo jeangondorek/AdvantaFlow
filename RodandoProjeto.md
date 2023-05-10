@@ -1,10 +1,9 @@
 # Descrição do projeto
 
-Tutorial docker https://www.youtube.com/watch?v=np_vyd7QlXk&ab_channel=MatheusBattisti-HoradeCodar
+[Tutorial docker](https://www.youtube.com/watch?v=np_vyd7QlXk&ab_channel=MatheusBattisti-HoradeCodar)
 
 Com o docker já instalado e o docker-compose tamém
-Caso use linux consultar tutorial
-https://docs.docker.com/desktop/install/ubuntu/
+Caso use linux consultar [tutorial](https://docs.docker.com/desktop/install/ubuntu/)
 
 Rodar o comanado para adicionar a imagem do postgres
 
@@ -15,11 +14,10 @@ docker pull postgres
 e rodar a imagem dentro do docker
 
 ```
-docker run --name db_postgres -e POSTGRES_PASSWORD=postgres -p 5433:5433 -d postgres
+docker run --name db_postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
 ```
 
-Aconfiguração da porta do container do postgres ficou na porta 5433.(5433 pois temos o postgres e pgadmin instalados rodando na 5432)
-
+Deve-se finalizar a instancia do posgres no localhost.
 
 #### Criando projeto node
 Nesse momento se cria o projeto node, inicializa o git e o npm. Instala dependencias e cria os arquivos dockerfile e configura ele. 
@@ -31,9 +29,10 @@ A configuração aplicada foi a forma "padrão" para projetos.
 - Typescript
 - jsonwebtoken
 - pgpromise
+![stack](https://skillicons.dev/icons?i=js,html,css,express,nodejs,vue,typescript,docker,postgres)
 
 #### Rodar sem o docker, em dev
- - É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.js` 
+ - É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.ts` 
  - e executando o comando `npm start`
 
 
@@ -46,3 +45,11 @@ A configuração aplicada foi a forma "padrão" para projetos.
 
 #### Limpando docker
 - `docker system prune`
+
+
+
+## Arquitetura do projeto
+
+[Vídeo aula](https://www.youtube.com/watch?v=0NCnwiXCks4&list=PL29TaWXah3iaaXDFPgTHiFMBF6wQahurP&index=8&ab_channel=LucasSouzaDev)
+
+[Curso](https://www.youtube.com/playlist?list=PL29TaWXah3iaaXDFPgTHiFMBF6wQahurP)
