@@ -17,3 +17,5 @@ Obetivo desenvolver uma aplicação completa.
 - Sqlite
 
 https://github.com/BrasilAPI/BrasilAPI
+
+https://dbdiagram.io/d
