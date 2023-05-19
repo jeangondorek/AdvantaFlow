@@ -1,5 +1,9 @@
 # Requisitos funcionais
 
+## Alunos
+
+- Willian Dal Pont & Jean Gondorek
+
 | ID  | REQUISITO FUNCIONAL  | TIPO DE USUÁRIO DO SISTEMA  | DESCRIÇÃO DO REQUISITO FUNCIONA  |
 |---|---|---|---|
 | RF01  | Manter Usuário  | Administrador  | O sistema deverá permitir que somente o administrador cadastre usuários na plataforma. Os dados necessários são: nome, cpf, oab(se advogado), email, fone, perfil (ex: perfil advogado, estagiário), senha e confirmação de senha. Ao gravar o sistema deverá registrar a data do cadastro e adicionar um campo de status(ativo/inativo).|
