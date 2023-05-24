@@ -19,3 +19,5 @@ Obetivo desenvolver uma aplicação completa.
 https://github.com/BrasilAPI/BrasilAPI
 
 https://dbdiagram.io/d
+
+[****](https://jsoncrack.com/editor)
