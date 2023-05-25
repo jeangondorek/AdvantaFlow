@@ -26,3 +26,10 @@ User controller access
 https://www.youtube.com/watch?v=AUY2AUAmT44&ab_channel=Rocketseat
 
 https://www.youtube.com/watch?v=TGCwB9oMR0o&ab_channel=DanieleLe%C3%A3o
+
+
+Deploy backend
+https://render.com/
+
+Deploy front
+https://vercel.com/
