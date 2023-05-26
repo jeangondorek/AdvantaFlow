@@ -24,6 +24,8 @@ https://jsoncrack.com/editor
 
 https://app.diagrams.net/
 
+https://whimsical.com/
+
 User controller access
 https://www.youtube.com/watch?v=AUY2AUAmT44&ab_channel=Rocketseat
 
