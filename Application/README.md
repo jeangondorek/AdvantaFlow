@@ -22,6 +22,8 @@ https://dbdiagram.io/d
 
 https://jsoncrack.com/editor
 
+https://app.diagrams.net/
+
 User controller access
 https://www.youtube.com/watch?v=AUY2AUAmT44&ab_channel=Rocketseat
 
