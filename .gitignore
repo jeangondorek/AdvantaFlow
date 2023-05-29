@@ -1,3 +1,4 @@
-Application/node_modules/
-Application/dist/
-Application/package-lock.json
+/*/node_modules/
+/*/dist/
+/*/package-lock.json
+/*/build
