@@ -33,6 +33,7 @@ https://www.youtube.com/watch?v=TGCwB9oMR0o&ab_channel=DanieleLe%C3%A3o
 
 
 
+https://upstash.com
 https://railway.app/
 
 Deploy backend
