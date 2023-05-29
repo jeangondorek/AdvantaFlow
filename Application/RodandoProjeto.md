@@ -26,12 +26,12 @@ A configuração aplicada foi a forma "padrão" para projetos.
 
 ### Node já inciado com o npm. Dependencias instaladas
 
-- Express
-- Nodemon
-- Typescript
-- jsonwebtoken
-- pgpromise
-![stack](https://skillicons.dev/icons?i=js,html,css,express,nodejs,vue,typescript,docker,postgres)
+- "dotenv"
+- "express"
+- "jsonwebtoken"
+- "nodemon"
+- "ts-node"
+- "typescript"
 
 #### Rodar sem o docker, em dev
 
