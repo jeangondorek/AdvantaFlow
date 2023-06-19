@@ -1,5 +1,9 @@
 # Prog2Project
 
+## Alunos
+
+- Willian Dal Pont & Jean Gondorek
+
 ## Orientações
 
 ### Banco de dados 1
