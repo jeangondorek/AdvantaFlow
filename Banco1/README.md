@@ -19,3 +19,37 @@
 |RF11|Manter comarca e tribunal do processo|Usuário|Criação da comarca (local em que o juiz irá exercer sua jurisdição), vara e tribunal (STF, STJ, JFAL…).|
 |RF12|Manter fase do processo|Usuário|Fase do processo (Consultoria, negociação, judicial, recursal e, execução/cobrança)|
 |RF13|Feedback ao cliente|Usuário|Disponibilizar checkbox para envio de e-mail ao cliente referente ao processo criado.|
+
+## Projeto rodadando em um docker com postgres
+
+Rodar o comanado para adicionar a imagem do postgres
+
+- Baixar a imagem do postgres
+
+```bash
+docker pull postgres
+```
+
+- Rodar a imagem dentro do docker
+
+```bash
+docker run --name projetointegrador -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+```
+
+- Acessar o banco de dados do docker
+
+```bash
+docker exec -it projetointegrador psql -U postgres
+```
+
+- Após rodar os script em sql no arquivo `scripts_sql.sql`. OBS: tem que ser na ordem do arquivo pois tem relacionamento de tabelas.
+
+### Parar postgres local
+
+```bash
+sudo /etc/init.d/postgresql stop
+```
+
+### Limpando docker
+
+- `docker system prune`
