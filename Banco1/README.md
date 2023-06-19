@@ -22,6 +22,40 @@
 
 ---
 
+## Projeto rodadando em um docker com postgres
+
+Rodar o comanado para adicionar a imagem do postgres
+
+- Baixar a imagem do postgres
+
+```bash
+docker pull postgres
+```
+
+- Rodar a imagem dentro do docker
+
+```bash
+docker run --name projetointegrador -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+```
+
+- Acessar o banco de dados do docker
+
+```bash
+docker exec -it projetointegrador psql -U postgres
+```
+
+- Após rodar os script em sql no arquivo `scripts_sql.sql`. OBS: tem que ser na ordem do arquivo pois tem relacionamento de tabelas.
+
+### Parar postgres local
+
+```bash
+sudo /etc/init.d/postgresql stop
+```
+
+### Limpando docker
+
+- `docker system prune`
+
 ## Projeto Conceitual
 ![projetoConceitual](https://github.com/jeangondorek/Prog2Project/assets/80592079/c31a316a-4598-4cf4-9c4f-aed8f3d7e2d3)
 
@@ -39,7 +73,37 @@
 -- gel_salt é para especificar o algoritimo hash que vai ser utilizado, nesse caso é o  blowfish
 -- para buscar uma senha é só utilizar na condição do select a função crypt
 -- ex: where senha_hash = crypt('senha123', senha_hash);
-create extension pgcrypto; 
+create database projetointegrador;
+
+create extension pgcrypto;
+
+create table perfil (
+    id serial not null,
+    descricao varchar(150) not null,
+    permissoes varchar(30) not null,
+    permissoes_opcional varchar(30) null,
+    constraint pk_perfil primary key (id)
+);
+
+create table comarca (
+    id serial not null,
+    descricao varchar(100) not null,
+    constraint pk_comarca primary key (id)
+);
+
+
+create table assunto (
+    id serial not null,
+    descricao varchar(100) not null,
+    constraint pk_assunto primary key (id)
+);
+
+
+create table fase (
+    id serial not null,
+    descricao varchar(100) not null,
+    constraint pk_fase primary key (id)
+);
 
 create table usuario (
     cpf varchar(11) not null,
@@ -48,17 +112,9 @@ create table usuario (
     telefone varchar(20) not null,
     oab varchar (30) null, -- valor padrão é nullo mas vamos manter um padrão especificando pra ficar mais ligível.
     senha_hash varchar(20) not null,
-    id_perfil interger not null,
+    id_perfil integer not null,
     constraint pk_usuario primary key (cpf),
     constraint fk_usuario_perfil foreign key (id_perfil) references perfil(id)
-);
-
-create table perfil (
-    id serial not null
-    descricao varchar(150) not null,
-    permissoes varchar(30) not null,
-    permissoes_opcional varchar(30) null,
-    constraint pk_perfil primary key (id)
 );
 
 create table processo (
@@ -77,6 +133,7 @@ create table processo (
     constraint fk_processo_fase foreign key (id_fase) references fase(id)
 );
 
+
 create table execucao (
     id serial not null,
     cpf_usuario varchar(11) not null,
@@ -85,6 +142,7 @@ create table execucao (
     constraint fk_execucao_usuario foreign key (cpf_usuario) references usuario(cpf),
     constraint fk_execucao_processo foreign key (id_processo) references processo(id)
 );
+
 
 create table tarefa (
     id serial not null,
@@ -96,6 +154,7 @@ create table tarefa (
     constraint fk_tarefa_processo foreign key (id_processo) references processo(id)
 );
 
+
 create table relacionado (
     id serial not null,
     cpf_usuario varchar(11) not null,
@@ -104,6 +163,7 @@ create table relacionado (
     constraint fk_relacionado_usuario foreign key (cpf_usuario) references usuario(cpf),
     constraint fk_relacionado_tarefa foreign key (id_tarefa) references tarefa(id)
 );
+
 
 create table anexo (
     id serial not null,
@@ -115,23 +175,5 @@ create table anexo (
     caminho_arquivo varchar(200),
     constraint pk_anexo primary key (id),
     constraint fk_anexo_tarefa foreign key (id_tarefa) references tarefa(id)
-);
-
-create table comarca (
-    id serial not null,
-    descricao varchar(100) not null
-    constraint pk_comarca primary key (id)
-);
-
-create table assunto (
-    id serial not null,
-    descricao varchar(100) not null
-    constraint pk_assunto primary key (id)
-);
-
-create table fase (
-    id serial not null,
-    descricao varchar(100) not null
-    constraint pk_fase primary key (id)
 );
 ```
