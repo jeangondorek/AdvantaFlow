@@ -18,40 +18,6 @@
 
 ---
 
-## Projeto rodadando em um docker com postgres
-
-Rodar o comanado para adicionar a imagem do postgres
-
-- Baixar a imagem do postgres
-
-```bash
-docker pull postgres
-```
-
-- Rodar a imagem dentro do docker
-
-```bash
-docker run --name projetointegrador -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
-```
-
-- Acessar o banco de dados do docker
-
-```bash
-docker exec -it projetointegrador psql -U postgres
-```
-
-- Após rodar os script em sql no arquivo `scripts_sql.sql`. OBS: tem que ser na ordem do arquivo pois tem relacionamento de tabelas.
-
-### Parar postgres local
-
-```bash
-sudo /etc/init.d/postgresql stop
-```
-
-### Limpando docker
-
-- `docker system prune`
-
 ## Projeto Conceitual
 ![projetoConceitual](https://github.com/jeangondorek/Prog2Project/assets/80592079/c31a316a-4598-4cf4-9c4f-aed8f3d7e2d3)
 
@@ -173,3 +139,37 @@ create table anexo (
     constraint fk_anexo_tarefa foreign key (id_tarefa) references tarefa(id)
 );
 ```
+
+## Projeto rodadando em um docker com postgres
+
+Rodar o comanado para adicionar a imagem do postgres
+
+- Baixar a imagem do postgres
+
+```bash
+docker pull postgres
+```
+
+- Rodar a imagem dentro do docker
+
+```bash
+docker run --name projetointegrador -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+```
+
+- Acessar o banco de dados do docker
+
+```bash
+docker exec -it projetointegrador psql -U postgres
+```
+
+- Após rodar os script em sql no arquivo `scripts_sql.sql`. OBS: tem que ser na ordem do arquivo pois tem relacionamento de tabelas.
+
+### Parar postgres local
+
+```bash
+sudo /etc/init.d/postgresql stop
+```
+
+### Limpando docker
+
+- `docker system prune`
