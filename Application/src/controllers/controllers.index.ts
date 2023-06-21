@@ -1,1 +1,3 @@
-import { pool } from "../database/database.index";
+import { getAll } from "./comarca/getall.comarca";
+
+export { getAll };
