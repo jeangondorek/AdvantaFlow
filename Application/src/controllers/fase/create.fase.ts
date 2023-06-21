@@ -6,7 +6,7 @@ export const createFase = async (req: any,res: any) => {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        const descricaoFase = "Descrição da fase";
+        const descricaoFase = req.body.descricao_fase;
         
         client.query("INSERT INTO fase (descricao_fase) VALUES ($1)", [descricaoFase], (queryError, result) => {
         release();

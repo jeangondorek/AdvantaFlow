@@ -6,7 +6,7 @@ export const createComarca = async (req: any,res: any) => {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        const descricaoComarca = "Descrição da comarca";
+        const descricaoComarca = req.body.descricao_comarca;
         
         client.query("INSERT INTO comarca (descricao_comarca) VALUES ($1)", [descricaoComarca], (queryError, result) => {
         release();

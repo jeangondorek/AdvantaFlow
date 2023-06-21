@@ -6,7 +6,7 @@ export const createAssunto = async (req: any,res: any) => {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        const descricaoAssunto = "Assunto da comarca";
+        const descricaoAssunto = req.body.descricao_assunto;
 
         client.query("INSERT INTO assunto (descricao_assunto) VALUES ($1)", [descricaoAssunto], (queryError, result) => {
         release();
