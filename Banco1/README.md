@@ -37,106 +37,108 @@
 -- ex: where senha_hash = crypt('senha123', senha_hash);
 create database projetointegrador;
 
+\c projetointegrador;
+
 create extension pgcrypto;
 
 create table perfil (
-    id serial not null,
-    descricao varchar(150) not null,
-    permissoes varchar(30) not null,
-    permissoes_opcional varchar(30) null,
-    constraint pk_perfil primary key (id)
+    id_perfil serial not null,
+    descricao_perfil varchar(150) not null,
+    permissoes_perfil varchar(30) not null,
+    permissoes_opcional_perfil varchar(30) null,
+    constraint pk_perfil primary key (id_perfil)
 );
 
 create table comarca (
-    id serial not null,
-    descricao varchar(100) not null,
-    constraint pk_comarca primary key (id)
+    id_comarca serial not null,
+    descricao_comarca varchar(100) not null,
+    constraint pk_comarca primary key (id_comarca)
 );
 
 
 create table assunto (
-    id serial not null,
-    descricao varchar(100) not null,
-    constraint pk_assunto primary key (id)
+    id_assunto serial not null,
+    descricao_assunto varchar(100) not null,
+    constraint pk_assunto primary key (id_assunto)
 );
 
 
 create table fase (
-    id serial not null,
-    descricao varchar(100) not null,
-    constraint pk_fase primary key (id)
+    id_fase serial not null,
+    descricao_fase varchar(100) not null,
+    constraint pk_fase primary key (id_fase)
 );
 
 create table usuario (
-    cpf varchar(11) not null,
-    nome varchar(40) not null,
-    status varchar(10) default 'Ativo',
-    telefone varchar(20) not null,
-    oab varchar (30) null, -- valor padrão é nullo mas vamos manter um padrão especificando pra ficar mais ligível.
-    senha_hash varchar(20) not null,
-    id_perfil integer not null,
-    constraint pk_usuario primary key (cpf),
-    constraint fk_usuario_perfil foreign key (id_perfil) references perfil(id)
+    cpf_usuario varchar(11) not null,
+    nome_usuario varchar(40) not null,
+    status_usuario varchar(10) default 'Ativo',
+    telefone_usuario varchar(20) not null,
+    oab_usuario varchar (30) null, -- valor padrão é nullo mas vamos manter um padrão especificando pra ficar mais ligível.
+    senha_hash_usuario varchar(20) not null,
+    id_perfil_usuario integer not null,
+    constraint pk_usuario primary key (cpf_usuario),
+    constraint fk_usuario_perfil foreign key (id_perfil_usuario) references perfil(id_perfil)
 );
 
 create table processo (
-    id serial not null,
-    numero_processo_cnpj varchar(20) not null,
-    descricao varchar(100) not null,
-    titulo varchar(50) not null,
-    resultado varchar(50),
-    data_criacao timestamp not null,
-    id_comarca integer not null,
-    id_assunto integer not null,
-    id_fase integer not null,
-    constraint pk_processo primary key (id),
-    constraint fk_processo_comarca foreign key (id_comarca) references comarca(id),
-    constraint fk_processo_assunto foreign key (id_assunto) references assunto(id),
-    constraint fk_processo_fase foreign key (id_fase) references fase(id)
+    id_processo serial not null,
+    numero_cnpj_processo varchar(20) not null,
+    descricao_processo varchar(100) not null,
+    titulo_processo varchar(50) not null,
+    resultado_processo varchar(50),
+    data_criacao_processo timestamp not null,
+    id_comarca_processo integer not null,
+    id_assunto_processo integer not null,
+    id_fase_processo integer not null,
+    constraint pk_processo primary key (id_processo),
+    constraint fk_processo_comarca foreign key (id_comarca_processo) references comarca(id_comarca),
+    constraint fk_processo_assunto foreign key (id_assunto_processo) references assunto(id_assunto),
+    constraint fk_processo_fase foreign key (id_fase_processo) references fase(id_fase)
 );
 
 
 create table execucao (
-    id serial not null,
-    cpf_usuario varchar(11) not null,
-    id_processo integer not null,
-    constraint pk_execucao primary key (id),
-    constraint fk_execucao_usuario foreign key (cpf_usuario) references usuario(cpf),
-    constraint fk_execucao_processo foreign key (id_processo) references processo(id)
+    id_execucao serial not null,
+    cpf_usuario_execucao varchar(11) not null,
+    id_processo_execucao integer not null,
+    constraint pk_execucao primary key (id_execucao),
+    constraint fk_execucao_usuario foreign key (cpf_usuario_execucao) references usuario(cpf_usuario),
+    constraint fk_execucao_processo foreign key (id_processo_execucao) references processo(id_processo)
 );
 
 
 create table tarefa (
-    id serial not null,
-    funcao varchar(50) not null,
-    detalhes TEXT,
-    data_criacao timestamp not null,
-    id_processo integer not null,
-    constraint pk_tarefa primary key (id),
-    constraint fk_tarefa_processo foreign key (id_processo) references processo(id)
+    id_tarefa serial not null,
+    funcao_tarefa varchar(50) not null,
+    detalhes_tarefa TEXT,
+    data_criacao_tarefa timestamp not null,
+    id_processo_tarefa integer not null,
+    constraint pk_tarefa primary key (id_tarefa),
+    constraint fk_tarefa_processo foreign key (id_processo_tarefa) references processo(id_processo)
 );
 
 
 create table relacionado (
-    id serial not null,
-    cpf_usuario varchar(11) not null,
-    id_tarefa integer not null,
-    constraint pk_relacionado primary key (id),
-    constraint fk_relacionado_usuario foreign key (cpf_usuario) references usuario(cpf),
-    constraint fk_relacionado_tarefa foreign key (id_tarefa) references tarefa(id)
+    id_relacionado serial not null,
+    cpf_usuario_relacionado varchar(11) not null,
+    id_tarefa_relacionado integer not null,
+    constraint pk_relacionado primary key (id_relacionado),
+    constraint fk_relacionado_usuario foreign key (cpf_usuario_relacionado) references usuario(cpf_usuario),
+    constraint fk_relacionado_tarefa foreign key (id_tarefa_relacionado) references tarefa(id_tarefa)
 );
 
 
 create table anexo (
-    id serial not null,
-    id_tarefa integer not null,
-    nome varchar(100),
-    formato varchar(10),
-    tamanho integer,
-    data_carregamento timestamp,
-    caminho_arquivo varchar(200),
-    constraint pk_anexo primary key (id),
-    constraint fk_anexo_tarefa foreign key (id_tarefa) references tarefa(id)
+    id_anexo serial not null,
+    id_tarefa_anexo integer not null,
+    nome_anexo varchar(100),
+    formato_anexo varchar(10),
+    tamanho_anexo integer,
+    data_carregamento_anexo timestamp,
+    caminho_arquivo_anexo varchar(200),
+    constraint pk_anexo primary key (id_anexo),
+    constraint fk_anexo_tarefa foreign key (id_tarefa_anexo) references tarefa(id_tarefa)
 );
 ```
 

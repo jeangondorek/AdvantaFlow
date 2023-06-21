@@ -1,4 +1,4 @@
-# Porjeto Integrador
+# Projeto Integrador
 
 Obetivo desenvolver uma aplicação completa.
 
