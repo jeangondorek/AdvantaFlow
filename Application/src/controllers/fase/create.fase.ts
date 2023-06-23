@@ -1,12 +1,14 @@
 import { pool } from "../../imports";
 
-export const getallComarca = async (req: any,res: any) => {
+export const createFase = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        client.query('SELECT * FROM comarca', (queryError, result) => {
+        const descricaoFase = req.body.descricao_fase;
+        
+        client.query("INSERT INTO fase (descricao_fase) VALUES ($1)", [descricaoFase], (queryError, result) => {
         release();
 
         if (queryError) {

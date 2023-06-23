@@ -1,6 +1,6 @@
 import { pool } from "../../imports";
 
-export const getallComarca = async (req: any,res: any) => {
+export const getAll = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
