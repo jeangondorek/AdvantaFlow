@@ -164,7 +164,7 @@ docker run --name projetointegrador -e POSTGRES_PASSWORD=postgres -p 5432:5432 -
 docker exec -it projetointegrador psql -U postgres
 ```
 
-- Após rodar os script em sql no arquivo `scripts_sql.sql`. OBS: tem que ser na ordem do arquivo pois tem relacionamento de tabelas.
+- Após rodar os script em sql. OBS: tem que ser na ordem do arquivo pois tem relacionamento de tabelas.
 
 ### Parar postgres local
 
