@@ -103,7 +103,7 @@ create table cliente (
     telefone_cliente varchar(14) not null,
     celular_cliente varchar(14) not null,
     id_indicacao_cliente integer null,
-    constraint pk_cliente primary key (cpf_cliente),
+    constraint pk_cliente primary key (cpf_cnpj_cliente),
     constraint fk_cliente_indicacao foreign key (id_indicacao_cliente) references indicacao(id_indicacao)
 );
 
@@ -117,11 +117,11 @@ create table processo (
     id_comarca_processo integer not null,
     id_assunto_processo integer not null,
     id_fase_processo integer not null,
-    cpf_cliente_processo integer not null,
-    cpf_usuario_processo integer not null,
+    cpf_cnpj_cliente_processo varchar not null,
+    cpf_usuario_processo varchar not null,
     constraint pk_processo primary key (id_processo),
     constraint fk_processo_usuario foreign key (cpf_usuario_processo) references usuario(cpf_usuario),
-    constraint fk_processo_cliente foreign key (cpf_cliente_processo) references cliente(cpf_cliente),
+    constraint fk_processo_cliente foreign key (cpf_cnpj_cliente_processo) references cliente(cpf_cnpj_cliente),
     constraint fk_processo_comarca foreign key (id_comarca_processo) references comarca(id_comarca),
     constraint fk_processo_assunto foreign key (id_assunto_processo) references assunto(id_assunto),
     constraint fk_processo_fase foreign key (id_fase_processo) references fase(id_fase)
