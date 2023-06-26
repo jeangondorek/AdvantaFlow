@@ -6,9 +6,9 @@ export const createIndicacao = async (req: any,res: any) => {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        const usuario = req.body;
+        const indicacao = req.body;
 
-        client.query("INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES($1, $2, $3, $4, $5, $6, $7);", [usuario.cpf_usuario, usuario.nome_usuario, usuario.status_usuario, usuario.telefone_usuario, usuario.oab_usuario, usuario.senha_hash_usuario, usuario.id_perfil_usuario], (queryError, result) => {
+        client.query("INSERT INTO indicacao (descricao_indicacao , detalhes_indicacao) VALUES($1, $2);", [indicacao.descricao_indicacao, indicacao.detalhes_indicacao], (queryError, result) => {
         release();
 
         if (queryError) {

@@ -1,12 +1,12 @@
 import { pool } from "../../imports";
 
-export const getallIndicacao = async (req: any,res: any) => {
+export const getbycpfCliente = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        client.query('SELECT * FROM indicacao', (queryError, result) => {
+        client.query('SELECT * FROM cliente WHERE cpf_cnpj_cliente = $1', [req.params.cpf_cnpj_cliente], (queryError, result) => {
         release();
 
         if (queryError) {

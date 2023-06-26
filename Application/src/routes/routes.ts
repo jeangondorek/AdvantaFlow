@@ -1,37 +1,35 @@
-import { Router } from "express";
-import { controller }  from '../imports'
+import { Router } from 'express';
+import { routerassunto } from './modules.routes/assunto.routes';
+import { routercomarca } from './modules.routes/comarca.routes';
+import { routerindicacao } from './modules.routes/indicacao.routes';
+import { routerusuario } from './modules.routes/usuario.routes';
+import { routerperfil } from './modules.routes/perfil.routes';
+import { routerfase } from './modules.routes/fase.routes';
+import { routeranexo } from './modules.routes/anexo.routes';
+import { routercliente } from './modules.routes/cliente.routes';
+import { routerprocesso } from './modules.routes/processo.routes';
+import { routertarefa } from './modules.routes/tarefa.routes';
 
 const router = Router();
 
-router.get('/comarca', controller.getallComarca);
-router.post('/comarca', controller.createComarca);
-router.put('/comarca/:id_comarca', controller.updateComarca);
-router.get('/comarca/:id_comarca', controller.getbyidComarca);
-router.delete('/comarca/:id_comarca', controller.deleteComarca);
+router.use(routeranexo);
 
-router.get('/fase', controller.getallFase);
-router.post('/fase', controller.createFase);
-router.put('/fase/:id_fase', controller.updateFase);
-router.get('/fase/:id_fase', controller.getbyidFase);
-router.delete('/fase/:id_fase', controller.deleteFase);
+router.use(routercomarca);
 
-router.get('/assunto', controller.getallAssunto);
-router.post('/assunto', controller.createAssunto);
-router.put('/assunto/:id_assunto', controller.updateAssunto);
-router.get('/assunto/:id_assunto', controller.getbyidAssunto);
-router.delete('/assunto/:id_assunto', controller.deleteAssunto);
+router.use(routerassunto);
 
-router.get('/usuario', controller.getallUsuario);
-router.post('/usuario', controller.createUsuario);
-router.put('/usuario/:cpf_usuario', controller.updateUsuario);
-router.get('/usuario/:cpf_usuario', controller.getbycpfUsuario);
-router.delete('/usuario/:cpf_usuario', controller.deleteUsuario);
+router.use(routerindicacao);
 
+router.use(routerfase);
 
-router.get('/perfil', controller.getallPerfil);
-router.post('/perfil', controller.createPerfil);
-router.put('/perfil/:id_perfil', controller.updatePerfil);
-router.get('/perfil/:id_perfil', controller.getbyidPerfil);
-router.delete('/perfil/:id_perfil', controller.deletePerfil);
+router.use(routerperfil);
+
+router.use(routerusuario);
+
+router.use(routercliente);
+
+router.use(routerprocesso);
+
+router.use(routertarefa);
 
 export { router };

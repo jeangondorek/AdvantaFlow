@@ -28,6 +28,36 @@ import { getbyidComarca } from './comarca/getbyid.comarca';
 import { deleteComarca } from './comarca/delete.comarca';
 import { updateComarca } from './comarca/update.comarca';
 
+import { getallIndicacao } from './indicacao/getall.indicacao';
+import { createIndicacao } from './indicacao/create.indicacao';
+import { getbyidIndicacao } from './indicacao/getbyid.indicacao';
+import { deleteIndicacao } from './indicacao/delete.indicacao';
+import { updateIndicacao } from './indicacao/update.indicacao';
+
+import { getallAnexo } from './anexo/getall.anexo';
+import { createAnexo } from './anexo/create.anexo';
+import { getbyidAnexo } from './anexo/getbyid.anexo';
+import { deleteAnexo } from './anexo/delete.anexo';
+import { updateAnexo } from './anexo/update.anexo';
+
+import { getallCliente } from './cliente/getall.cliente';
+import { createCliente } from './cliente/create.cliente';
+import { getbycpfCliente } from './cliente/getbycpf.cliente';
+import { deleteCliente } from './cliente/delete.cliente';
+import { updateCliente } from './cliente/update.cliente';
+
+import { getallProcesso } from './processo/getall.processo';
+import { createProcesso } from './processo/create.processo';
+import { getbyidProcesso } from './processo/getbyid.processo';
+import { deleteProcesso } from './processo/delete.processo';
+import { updateProcesso } from './processo/update.processo';
+
+import { getallTarefa } from './tarefa/getall.tarefa';
+import { createTarefa } from './tarefa/create.tarefa';
+import { getbyidTarefa } from './tarefa/getbyid.tarefa';
+import { deleteTarefa } from './tarefa/delete.tarefa';
+import { updateTarefa } from './tarefa/update.tarefa';
+
 export { 
     getbyidComarca,
     getallFase,
@@ -53,6 +83,30 @@ export {
     updatePerfil,
     getbycpfUsuario,
     deleteUsuario,
-    updateUsuario
-
+    updateUsuario,
+    getallIndicacao,
+    createIndicacao,
+    getbyidIndicacao,
+    deleteIndicacao,
+    updateIndicacao,
+    createAnexo,
+    getallAnexo,
+    getbyidAnexo,
+    deleteAnexo,
+    updateAnexo,
+    getallCliente,
+    createCliente,
+    getbycpfCliente,
+    deleteCliente,
+    updateCliente,
+    createProcesso,
+    getallProcesso,
+    getbyidProcesso,
+    deleteProcesso,
+    updateProcesso,
+    createTarefa,
+    getallTarefa,
+    getbyidTarefa,
+    deleteTarefa,
+    updateTarefa
 };

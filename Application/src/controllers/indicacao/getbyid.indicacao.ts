@@ -6,7 +6,7 @@ export const getbyidIndicacao = async (req: any,res: any) => {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        client.query('SELECT * FROM usuario WHERE cpf_usuario = $1', [req.params.cpf_usuario], (queryError, result) => {
+        client.query('SELECT * FROM indicacao WHERE id_indicacao = $1', [req.params.id_indicacao], (queryError, result) => {
         release();
 
         if (queryError) {
