@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "1c0b3c94-8458-4cd8-a8d5-c739adf344be",
+		"name": "REQUEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21538623",
+		"_collection_link": "https://dark-escape-112407.postman.co/workspace/INTEGRADOR~0f427f09-b991-4bb3-b6ea-0dd8ca34662a/collection/21538623-1c0b3c94-8458-4cd8-a8d5-c739adf344be?action=share&creator=21538623&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "COMARCA",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}comarca",
+							"host": [
+								"{{base_url}}comarca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}comarca/1",
+							"host": [
+								"{{base_url}}comarca"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_comarca\": \"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}comarca/1",
+							"host": [
+								"{{base_url}}comarca"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}comarca/1",
+							"host": [
+								"{{base_url}}comarca"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_comarca\": \"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}comarca",
+							"host": [
+								"{{base_url}}comarca"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FASE",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}fase",
+							"host": [
+								"{{base_url}}fase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}fase/2",
+							"host": [
+								"{{base_url}}fase"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_fase\": \"postman2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}fase/2",
+							"host": [
+								"{{base_url}}fase"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}fase/2",
+							"host": [
+								"{{base_url}}fase"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_fase\": \"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}fase",
+							"host": [
+								"{{base_url}}fase"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ASSUNTO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}assunto",
+							"host": [
+								"{{base_url}}assunto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}assunto/1",
+							"host": [
+								"{{base_url}}assunto"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_assunto\": \"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}assunto/2",
+							"host": [
+								"{{base_url}}assunto"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}assunto/1",
+							"host": [
+								"{{base_url}}assunto"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_assunto\": \"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}assunto",
+							"host": [
+								"{{base_url}}assunto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USUARIO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuario",
+							"host": [
+								"{{base_url}}usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuario/123153",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"123153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Cpf",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome_usuario\": \"willian bonner\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}usuario/123153",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"123153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cpf",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuario/12232153",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"12232153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf_usuario\": \"12232153\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}usuario",
+							"host": [
+								"{{base_url}}usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PERFIL",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}perfil",
+							"host": [
+								"{{base_url}}perfil"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}perfil/1",
+							"host": [
+								"{{base_url}}perfil"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_perfil\": \"123153\",\n    \"permissoes_perfil\": \"654\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}perfil/2",
+							"host": [
+								"{{base_url}}perfil"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}perfil/1",
+							"host": [
+								"{{base_url}}perfil"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_perfil\": \"123153\",\n    \"permissoes_perfil\": \"654\",\n    \"permissoes_opcional_perfil\": \"permissoes_opcional_perfil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}perfil",
+							"host": [
+								"{{base_url}}perfil"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5555/",
+			"type": "string"
+		}
+	]
+}
