@@ -1,14 +1,13 @@
 import { pool } from "../../imports";
 
-export const createAnexo = async (req: any,res: any) => {
+export const deleteAnexo = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        const anexo = req.body;
-
-        client.query("INSERT INTO anexo (nome, formato, tamanho, data_carregamento, caminho_arquivo) VALUES ($1)", [anexo.nome, anexo.formato, anexo.tamanho, anexo.data_carregamento, anexo.caminho_arquivo], (queryError, result) => {
+        
+        client.query("DELETE FROM anexo WHERE id_anexo = $1", [req.params.id_anexo], (queryError, result) => {
         release();
 
         if (queryError) {
