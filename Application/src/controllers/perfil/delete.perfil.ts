@@ -1,12 +1,13 @@
 import { pool } from "../../imports";
 
-export const getallUsuario = async (req: any,res: any) => {
+export const deletePerfil = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        client.query('SELECT * FROM usuario', (queryError, result) => {
+        
+        client.query("DELETE FROM peril WHERE id_peril = $1", [req.params.id_peril], (queryError, result) => {
         release();
 
         if (queryError) {

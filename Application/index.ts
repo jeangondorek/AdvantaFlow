@@ -5,7 +5,7 @@ pool.connect()
   .then(() => {
     console.log('Conexão com o banco de dados estabelecida com sucesso!');
     server.listen(port, () => {
-      console.log(`Example app listening on port ${port} env ${env}!`);
+      console.log(`Example app listening on address http://localhost:${port} env ${env}!`);
     });
   })
   .catch((error) => {
