@@ -1,8 +1,8 @@
-import { getallTarefa } from './getall.terefa';
-import { createTarefa } from './create.terefa';
-import { getbyidTarefa } from './getbyid.terefa';
-import { deleteTarefa } from './delete.terefa';
-import { updateTarefa } from './update.terefa';
+import { getallTarefa } from './getall.tarefa';
+import { createTarefa } from './create.tarefa';
+import { getbyidTarefa } from './getbyid.tarefa';
+import { deleteTarefa } from './delete.tarefa';
+import { updateTarefa } from './update.tarefa';
 
 export{
     getallTarefa,

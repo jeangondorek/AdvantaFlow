@@ -4,7 +4,7 @@ import { getbyidAssunto } from './getbyid.assunto';
 import { deleteAssunto } from './delete.assunto';
 import { updateAssunto } from './update.assunto';
 
-export{
+export {
     getallAssunto,
     createAssunto,
     getbyidAssunto,
