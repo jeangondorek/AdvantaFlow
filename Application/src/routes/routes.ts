@@ -9,10 +9,16 @@ import { routeranexo } from './modules.routes/anexo.routes';
 import { routercliente } from './modules.routes/cliente.routes';
 import { routerprocesso } from './modules.routes/processo.routes';
 import { routertarefa } from './modules.routes/tarefa.routes';
+import { routerexecucao } from './modules.routes/execucao.routes';
+import { routerrelacionado } from './modules.routes/relacionado.routes';
 
 const router = Router();
 
 router.use(routeranexo);
+
+router.use(routerrelacionado);
+
+router.use(routerexecucao);
 
 router.use(routercomarca);
 

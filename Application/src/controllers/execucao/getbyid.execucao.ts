@@ -1,12 +1,12 @@
 import { pool } from "../../imports";
 
-export const getallRelacionado = async (req: any,res: any) => {
+export const getbyidExecucao = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        client.query('SELECT * FROM relacionado', (queryError, result) => {
+        client.query('SELECT * FROM execucao WHERE id_execucao = $1',[req.params.id_execucao], (queryError, result) => {
         release();
 
         if (queryError) {
