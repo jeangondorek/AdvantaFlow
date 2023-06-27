@@ -1,12 +1,317 @@
 {
 	"info": {
-		"_postman_id": "1c0b3c94-8458-4cd8-a8d5-c739adf344be",
+		"_postman_id": "aa6ffd8f-396b-42ca-8876-f1c7801ddbd2",
 		"name": "REQUEST",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21538623",
-		"_collection_link": "https://dark-escape-112407.postman.co/workspace/INTEGRADOR~0f427f09-b991-4bb3-b6ea-0dd8ca34662a/collection/21538623-1c0b3c94-8458-4cd8-a8d5-c739adf344be?action=share&creator=21538623&source=collection_link"
+		"_exporter_id": "26614633"
 	},
 	"item": [
+		{
+			"name": "ANEXO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}anexo",
+							"host": [
+								"{{base_url}}anexo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}anexo/1",
+							"host": [
+								"{{base_url}}anexo"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_tarefa_anexo\": 1,\n    \"nome_anexo\": \"Nome do Anexo\",\n    \"formato_anexo\": \"Formato do Anexo\",\n    \"tamanho_anexo\": 1024,\n    \"data_carregamento_anexo\": \"2023-06-26\",\n    \"caminho_arquivo_anexo\": \"Caminho do Arquivo\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}anexo/2",
+							"host": [
+								"{{base_url}}anexo"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}anexo/2",
+							"host": [
+								"{{base_url}}anexo"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id_tarefa_anexo\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}anexo",
+							"host": [
+								"{{base_url}}anexo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ASSUNTO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}assunto",
+							"host": [
+								"{{base_url}}assunto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}assunto/1",
+							"host": [
+								"{{base_url}}assunto"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_assunto\": \"postmansdghg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}assunto/2",
+							"host": [
+								"{{base_url}}assunto"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}assunto/1",
+							"host": [
+								"{{base_url}}assunto"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao_assunto\": \"postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}assunto",
+							"host": [
+								"{{base_url}}assunto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLIENTE",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}cliente",
+							"host": [
+								"{{base_url}}cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}cliente/12232153",
+							"host": [
+								"{{base_url}}cliente"
+							],
+							"path": [
+								"12232153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Cpf",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"nome_cliente\": \"marquibsss s\",\n        \"email_cliente\": \"asfas@safasf.cm\",\n        \"rg_cliente\": \"4554\",\n        \"sexo_cliente\": \"talvez\",\n        \"profissao_cliente\": \"seu guarda n sou vagabundo\",\n        \"cep_cliente\": 5454856,\n        \"uf_cliente\": \"sc\",\n        \"bairro_cliente\": \"batt\",\n        \"endereco_cliente\": \"br\",\n        \"codigo_municipio_cliente\": 2,\n        \"nacionalidade\": \"asfasgsa\",\n        \"data_nascimento_cliente\": \"2020-05-05\",\n        \"telefone_cliente\": \"45456456\",\n        \"celular_cliente\": \"9876846\",\n        \"id_indicacao_cliente\": 1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}cliente/12232153",
+							"host": [
+								"{{base_url}}cliente"
+							],
+							"path": [
+								"12232153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cpf",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}cliente/122322153",
+							"host": [
+								"{{base_url}}cliente"
+							],
+							"path": [
+								"122322153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf_cnpj_cliente\": \"122322153\",\n    \"nome_cliente\": \"jose iriney\",\n    \"email_cliente\": \"asfas@safasf.cm\",\n    \"bairro_cliente\": \"batt\",\n    \"telefone_cliente\": \"45456456\",\n    \"cep_cliente\": 5454856,\n    \"uf_cliente\": \"sc\",\n    \"celular_cliente\": 9876846,\n    \"codigo_municipio_cliente\": 2,\n    \"id_indicacao_cliente\": 1,\n    \"rg_cliente\": \"4554\",\n    \"sexo_cliente\": \"talvez\",\n    \"profissao_cliente\": \"seu guarda n sou vagabundo\",\n    \"endereco_cliente\": \"br\",\n    \"nacionalidade\": \"asfasgsa\",\n    \"data_nascimento_cliente\": \"2000-02-02\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}cliente",
+							"host": [
+								"{{base_url}}cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "COMARCA",
 			"item": [
@@ -212,7 +517,7 @@
 			]
 		},
 		{
-			"name": "ASSUNTO",
+			"name": "INDICACAO",
 			"item": [
 				{
 					"name": "Get All",
@@ -220,9 +525,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}assunto",
+							"raw": "{{base_url}}indicacao",
 							"host": [
-								"{{base_url}}assunto"
+								"{{base_url}}indicacao"
 							]
 						}
 					},
@@ -234,9 +539,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}assunto/1",
+							"raw": "{{base_url}}indicacao/1",
 							"host": [
-								"{{base_url}}assunto"
+								"{{base_url}}indicacao"
 							],
 							"path": [
 								"1"
@@ -252,7 +557,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao_assunto\": \"postman\"\n}",
+							"raw": "{\n    \"descricao_indicacao\": \"123153\",\n    \"detalhes_indicacao\": \"654\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -260,12 +565,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}assunto/2",
+							"raw": "{{base_url}}indicacao/1",
 							"host": [
-								"{{base_url}}assunto"
+								"{{base_url}}indicacao"
 							],
 							"path": [
-								"2"
+								"1"
 							]
 						}
 					},
@@ -277,12 +582,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}assunto/1",
+							"raw": "{{base_url}}indicacao/2",
 							"host": [
-								"{{base_url}}assunto"
+								"{{base_url}}indicacao"
 							],
 							"path": [
-								"1"
+								"2"
 							]
 						}
 					},
@@ -295,7 +600,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao_assunto\": \"postman\"\n}",
+							"raw": "{\n    \"descricao_indicacao\": \"123153\",\n    \"detalhes_indicacao\": \"654\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -303,111 +608,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}assunto",
+							"raw": "{{base_url}}indicacao",
 							"host": [
-								"{{base_url}}assunto"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "USUARIO",
-			"item": [
-				{
-					"name": "Get All",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}usuario",
-							"host": [
-								"{{base_url}}usuario"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Cpf",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}usuario/123153",
-							"host": [
-								"{{base_url}}usuario"
-							],
-							"path": [
-								"123153"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Put Cpf",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"nome_usuario\": \"willian bonner\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 3\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}usuario/123153",
-							"host": [
-								"{{base_url}}usuario"
-							],
-							"path": [
-								"123153"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Cpf",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}usuario/12232153",
-							"host": [
-								"{{base_url}}usuario"
-							],
-							"path": [
-								"12232153"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"cpf_usuario\": \"12232153\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}usuario",
-							"host": [
-								"{{base_url}}usuario"
+								"{{base_url}}indicacao"
 							]
 						}
 					},
@@ -518,6 +721,312 @@
 			]
 		},
 		{
+			"name": "PROCESSO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}processo",
+							"host": [
+								"{{base_url}}processo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}processo/1",
+							"host": [
+								"{{base_url}}processo"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"numero_cnpj_processo\": \"123456789\",\n        \"descricao_processo\": \"Descrição\",\n        \"titulo_processo\": \"Título do processo\",\n        \"resultado_processo\": \"Resultado do processo\",\n        \"data_criacao_processo\": \"2023-06-26T00:00:00.000Z\",\n        \"id_comarca_processo\": 2,\n        \"id_assunto_processo\": 2,\n        \"id_fase_processo\": 1,\n        \"cpf_cnpj_cliente_processo\": \"12232153\",\n        \"cpf_usuario_processo\": \"122321553\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}processo/1",
+							"host": [
+								"{{base_url}}processo"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}processo/2",
+							"host": [
+								"{{base_url}}processo"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"numero_cnpj_processo\": \"123456789\",\n  \"descricao_processo\": \"Descrição do processo\",\n  \"titulo_processo\": \"Título do processo\",\n  \"resultado_processo\": \"Resultado do processo\",\n  \"data_criacao_processo\": \"2023-06-26\",\n  \"id_comarca_processo\": 2,\n  \"id_assunto_processo\": 2,\n  \"id_fase_processo\": 1,\n  \"cpf_cnpj_cliente_processo\": \"12232153\",\n  \"cpf_usuario_processo\": \"122321553\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}processo",
+							"host": [
+								"{{base_url}}processo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TAREFA",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}tarefa",
+							"host": [
+								"{{base_url}}tarefa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}tarefa/1",
+							"host": [
+								"{{base_url}}tarefa"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"funcao_tarefa\": \"123456789\",\n  \"detalhes_tarefa\": \"Descrição do tarefa\",\n  \"data_criacao_tarefa\": \"2023-06-26\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}tarefa/1",
+							"host": [
+								"{{base_url}}tarefa"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}tarefa/2",
+							"host": [
+								"{{base_url}}tarefa"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"funcao_tarefa\": \"123456789\",\n  \"detalhes_tarefa\": \"Descrição do processo\",\n  \"data_criacao_tarefa\": \"2023-06-26\",\n  \"id_processo_tarefa\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}tarefa",
+							"host": [
+								"{{base_url}}tarefa"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USUARIO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuario",
+							"host": [
+								"{{base_url}}usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cpf",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuario/123153",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"123153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Cpf",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome_usuario\": \"willian bonner\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}usuario/123153",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"123153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cpf",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}usuario/12232153",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"12232153"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf_usuario\": \"122321553\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}usuario",
+							"host": [
+								"{{base_url}}usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Index",
 			"request": {
 				"method": "GET",
@@ -554,8 +1063,18 @@
 	],
 	"variable": [
 		{
-			"key": "base_url",
+			"key": "url_local",
 			"value": "http://localhost:5555/",
+			"type": "string"
+		},
+		{
+			"key": "url_codespaces",
+			"value": "https://jeangondorek-friendly-guide-vqjrqvq6pq2ww6p-5555.preview.app.github.dev/",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://jeangondorek-friendly-guide-vqjrqvq6pq2ww6p-5555.preview.app.github.dev/",
 			"type": "string"
 		}
 	]

@@ -7,9 +7,9 @@ export const updateAnexo = async (req: any,res: any) => {
         }
 
         const anexo = req.body;
-        const cpf_usuario = req.params.cpf_usuario;
+        const id_anexo = req.params.id_anexo;
 
-        client.query("UPDATE anexo SET nome_anexo = $1 , status_usuario = $2 , telefone_usuario = $3 , oab_usuario = $4 , senha_hash_usuario = $5, id_perfil_usuario = $6 WHERE cpf_usuario = $7", [anexo.nome_usuario, anexo.status_usuario, anexo.telefone_usuario, anexo.oab_usuario, anexo.senha_hash_usuario, anexo.id_perfil_usuario,  cpf_usuario], (queryError, result) => {
+        client.query("UPDATE anexo SET nome_anexo = $1 , formato_anexo  = $2 , tamanho_anexo  = $3 , data_carregamento_anexo  = $4 , caminho_arquivo_anexo  = $5, id_tarefa_anexo = $6  WHERE id_anexo = $7", [anexo.nome_anexo, anexo.formato_anexo, anexo.tamanho_anexo, anexo.data_carregamento_anexo, anexo.caminho_arquivo_anexo, anexo.id_tarefa_anexo, id_anexo], (queryError, result) => {
             release();
 
             if (queryError) {

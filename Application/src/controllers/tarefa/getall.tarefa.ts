@@ -1,12 +1,12 @@
 import { pool } from "../../imports";
 
-export const getAll = async (req: any,res: any) => {
+export const getallTarefa = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
         if (error) {
         return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
         }
 
-        client.query('SELECT * FROM comarca', (queryError, result) => {
+        client.query('SELECT * FROM tarefa', (queryError, result) => {
         release();
 
         if (queryError) {
