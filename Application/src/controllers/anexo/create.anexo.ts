@@ -1,21 +1,30 @@
 import { pool } from "../../imports";
+import { validarAnexo } from "../../middleware/validate.anexo";
+import { Anexo } from "../../models/anexo.model";
 
-export const createAnexo = async (req: any,res: any) => {
-    pool.connect((error, client, release) => {
-        if (error) {
-        return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
-        }
+export const createAnexo = async (req: any, res: any) => {
+  const client = await pool.connect();
 
-        const anexo = req.body;
+  try {
+    await client.query('BEGIN'); // Inicia a transação
 
-        client.query("INSERT INTO anexo (id_tarefa_anexo , nome_anexo, formato_anexo, tamanho_anexo, data_carregamento_anexo, caminho_arquivo_anexo) VALUES ($1, $2, $3, $4, $5, $6)", [anexo.id_tarefa_anexo, anexo.nome_anexo, anexo.formato_anexo, anexo.tamanho_anexo, anexo.data_carregamento_anexo, anexo.caminho_arquivo_anexo], (queryError, result) => {
-        release();
+    // Chama o middleware de validação antes de criar o anexo
+    validarAnexo(req, res, async () => {
+      const anexoData = req.body;
+      const anexo = new Anexo(anexoData);
 
-        if (queryError) {
-            return res.status(500).json({ error: 'Erro ao executar a consulta' });
-        }
+      await anexo.save();
 
-        res.json(result.rows);
-        });
+      const insertedAnexoId = anexo.id_anexo; // Obtém o ID do anexo inserido
+
+      await client.query('COMMIT'); // Confirma a transação
+
+      res.json({ message: 'Inserido corretamente', id_anexo: insertedAnexoId });
     });
-}
+  } catch (error) {
+    await client.query('ROLLBACK'); // Reverte a transação em caso de erro
+    res.status(500).json({ error: 'Erro ao executar a consulta' });
+  } finally {
+    client.release();
+  }
+};

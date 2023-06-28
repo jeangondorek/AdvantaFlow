@@ -47,7 +47,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_tarefa_anexo\": 1,\n    \"nome_anexo\": \"Nome do Anexo\",\n    \"formato_anexo\": \"Formato do Anexo\",\n    \"tamanho_anexo\": 1024,\n    \"data_carregamento_anexo\": \"2023-06-26\",\n    \"caminho_arquivo_anexo\": \"Caminho do Arquivo\"\n}\n",
+							"raw": "{\n    \"id_tarefa_anexo\": 5,\n    \"nome_anexo\": \"Nome do Anexo\",\n    \"formato_anexo\": \"asgas\",\n    \"tamanho_anexo\": 1024,\n    \"data_carregamento_anexo\": \"2023-06-27\",\n    \"caminho_arquivo_anexo\": \"alo/safgsa/asfas.pbg\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -55,12 +55,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}anexo/2",
+							"raw": "{{base_url}}anexo/1",
 							"host": [
 								"{{base_url}}anexo"
 							],
 							"path": [
-								"2"
+								"1"
 							]
 						}
 					},
@@ -90,7 +90,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id_tarefa_anexo\": 1\n}\n",
+							"raw": "{\n    \"id_tarefa_anexo\": 5,\n    \"nome_anexo\": \"Nome do Anexo\",\n    \"formato_anexo\": \"asgas\",\n    \"tamanho_anexo\": 1024,\n    \"data_carregamento_anexo\": \"2023-06-27\",\n    \"caminho_arquivo_anexo\": \"alo/safgsa/asfas.pbg\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -407,6 +407,108 @@
 							"raw": "{{base_url}}comarca",
 							"host": [
 								"{{base_url}}comarca"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EXECUCAO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}execucao",
+							"host": [
+								"{{base_url}}execucao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}execucao/12",
+							"host": [
+								"{{base_url}}execucao"
+							],
+							"path": [
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf_usuario_execucao\": \"1223215253\",\n    \"id_processo_execucao\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}execucao/12",
+							"host": [
+								"{{base_url}}execucao"
+							],
+							"path": [
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}execucao/1",
+							"host": [
+								"{{base_url}}execucao"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cpf_usuario_execucao\": \"1223215254\",\n    \"id_processo_execucao\": 6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}execucao",
+							"host": [
+								"{{base_url}}execucao"
 							]
 						}
 					},
@@ -804,7 +906,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"numero_cnpj_processo\": \"123456789\",\n  \"descricao_processo\": \"Descrição do processo\",\n  \"titulo_processo\": \"Título do processo\",\n  \"resultado_processo\": \"Resultado do processo\",\n  \"data_criacao_processo\": \"2023-06-26\",\n  \"id_comarca_processo\": 2,\n  \"id_assunto_processo\": 2,\n  \"id_fase_processo\": 1,\n  \"cpf_cnpj_cliente_processo\": \"12232153\",\n  \"cpf_usuario_processo\": \"122321553\"\n}\n",
+							"raw": "{\n  \"numero_cnpj_processo\": \"123456789\",\n  \"descricao_processo\": \"Descrição do processo\",\n  \"titulo_processo\": \"Título do processo\",\n  \"resultado_processo\": \"Resultado do processo\",\n  \"data_criacao_processo\": \"2023-06-26\",\n  \"id_comarca_processo\": 2,\n  \"id_assunto_processo\": 2,\n  \"id_fase_processo\": 1,\n  \"cpf_cnpj_cliente_processo\": \"122322153\",\n  \"cpf_usuario_processo\": \"1223215253\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -815,6 +917,108 @@
 							"raw": "{{base_url}}processo",
 							"host": [
 								"{{base_url}}processo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RELACIONADO",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}relacionado",
+							"host": [
+								"{{base_url}}relacionado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}relacionado/1",
+							"host": [
+								"{{base_url}}relacionado"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cpf_usuario_relacionado\": \"122321553\",\n  \"id_tarefa_relacionado\": 3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}relacionado/2",
+							"host": [
+								"{{base_url}}relacionado"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}relacionado/4",
+							"host": [
+								"{{base_url}}relacionado"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cpf_usuario_relacionado\": \"1223215253\",\n  \"id_tarefa_relacionado\": 6\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}relacionado",
+							"host": [
+								"{{base_url}}relacionado"
 							]
 						}
 					},
@@ -906,7 +1110,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"funcao_tarefa\": \"123456789\",\n  \"detalhes_tarefa\": \"Descrição do processo\",\n  \"data_criacao_tarefa\": \"2023-06-26\",\n  \"id_processo_tarefa\": 1\n}\n",
+							"raw": "{\n  \"funcao_tarefa\": \"1223215253\",\n  \"detalhes_tarefa\": \"Descrição do processo\",\n  \"data_criacao_tarefa\": \"2023-06-26\",\n  \"id_processo_tarefa\": 4\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1008,7 +1212,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cpf_usuario\": \"122321553\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 1\n}",
+							"raw": "{\n    \"cpf_usuario\": \"1223215254\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1069,12 +1273,12 @@
 		},
 		{
 			"key": "url_codespaces",
-			"value": "https://jeangondorek-friendly-guide-vqjrqvq6pq2ww6p-5555.preview.app.github.dev/",
+			"value": "https://jeangondorek-cautious-lamp-g5w54454gp5cqg4-5555.preview.app.github.dev/",
 			"type": "string"
 		},
 		{
 			"key": "base_url",
-			"value": "https://jeangondorek-friendly-guide-vqjrqvq6pq2ww6p-5555.preview.app.github.dev/",
+			"value": "https://jeangondorek-cautious-lamp-g5w54454gp5cqg4-5555.preview.app.github.dev/",
 			"type": "string"
 		}
 	]
