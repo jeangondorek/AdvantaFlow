@@ -1,16 +1,19 @@
 # Banco de dados
 
 ## Projeto Conceitual
+
 ![projetoConceitual](https://github.com/jeangondorek/Prog2Project/assets/80592079/c31a316a-4598-4cf4-9c4f-aed8f3d7e2d3)
 
 ---
 
 ## Projeto Lógico
+
 ![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/26c5d108-1790-4fc5-b2a1-621151426d67)
 
 ---
 
 ## Projeto Físico
+
 ```sql
 -- extensão do postgres que que realiza operações de hash
 -- para inserir uma senha utilizando a extensão, é necessário usar a função crypt("Senha", gen_salt("bf"))
@@ -150,7 +153,7 @@ create table anexo (
 );
 ```
 
-## Projeto rodadando em um docker com postgres
+### Projeto rodadando em um docker com postgres
 
 Rodar o comanado para adicionar a imagem do postgres
 

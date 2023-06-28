@@ -1,58 +1,65 @@
-# Projeto Integrador
+# Prog2Project
 
-Obetivo desenvolver uma aplicação completa.
+## Alunos
 
-## Tecnologias a serem usadas
+- Willian Dal Pont & Jean Gondorek
 
-- HTML
-- CSS
-- JavaScript
-- NodeJs
-- Vue
-- Typescript
-- Express
-- JWT
-- Docker
-- Postgres
-- Sqlite
+## Breve descrição do projeto
 
-https://github.com/BrasilAPI/BrasilAPI
+O objetivo do projeto é criar um sistema de gerencia para o escritório de advocacia (mais informações na pasta/arquivo `EngSoft1/README.md` ou `EngSoft1/Elicitação e Requisitos funcionais ENG1.pdf`).
 
-https://dbdiagram.io/d
+## Tecnologias utilziadas
 
-https://jsoncrack.com/editor
+- [HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Node.js](https://nodejs.org/en/docs/)
+- [Vue.js](https://vuejs.org/v2/guide/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Express.js](https://expressjs.com/)
+- [JWT (JSON Web Tokens)](https://jwt.io/introduction/)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [Docker](https://docs.docker.com/)
+- [PostgreSQL](https://www.postgresql.org/docs/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [NPM (Node Package Manager)](https://docs.npmjs.com/)
 
-https://app.diagrams.net/
+## Problema real
 
-https://whimsical.com/
+Necessidade de um programa para administração do escritório de advocacia com melhorias em relação as formas de gerir o escritório.
 
-User controller access
-https://www.youtube.com/watch?v=AUY2AUAmT44&ab_channel=Rocketseat
+Melhorias seriam em relação ao armazenamento de arquivos, definição mais clara de tarefas e pessoas responsáveis para a execução das tarefas, poder anexar os arquivos nas tarefas, integração com serviçoes de email, sms e whatsapp para informar alterações de status ou informações do processo, uso de modelos dentro das páginas e agendamentos.
 
-https://www.youtube.com/watch?v=TGCwB9oMR0o&ab_channel=DanieleLe%C3%A3o
+## Funcionalidades planejadas e implementadas
 
+- [] Manter Usuário
+- [] Manter Perfil
+- [] Efetuar Login
+- [] Esqueci minha senha
+- [] Sair do sistema
+- [] Tela inicial
+- [] Manter tarefa
+- [] Manter cliente
+- [] Manter processo
+- [] Manter assuntos/tags do processo
+- [] Manter comarca e tribunal do processo
+- [] Manter fase do processo
+- [] Feedback ao cliente
 
+## Informações para rodar projeto
 
-https://upstash.com
-https://railway.app/
-
-Deploy backend
-https://www.youtube.com/watch?v=pmXfvd6Zqg4&list=PL85ITvJ7FLogNHtbfjISMtEk_WepbGMO6&index=2&ab_channel=Rocketseat
-https://render.com/
-
-Deploy front
-https://vercel.com/
-
-#### Rodar sem o docker, em dev
-
-- É possível rodar o projeto sem usar o docker, porém sem database, simplesmente alterando a porta no arquivo `index.ts`
-- e executando o comando `npm i` e `npm start`
-
-## Para ser usado em produção
-
+- Necessário inicializar o banco de dados na pasta/arquivo `Banco1/README.md`
+- Após o banco inicializado com docker e o arquivo `.env` configurado para esse banco podemos seguir para rodar o projeto de duas formas.
+  
 ### Faça o build da imagem docker na sua máquina
 
-- Nome é o nome da imagem, diretório se refere onde está o arquivo Dockerfile, caso no mesmo diretorio que está rodando somente usar (.)
+Dentro dessa pasta chamada `Application`
+
 - `docker build -t NOME ./DIRETORIO`
-- Rodando projeto, o `NOME` deve ser o mesmo usado na build
+  - Nome é o nome da imagem, diretório se refere onde está o arquivo Dockerfile, caso no mesmo diretorio que está rodando somente usar (.)
 - `docker run -p 3000:3000 -d NOME`
+  - Rodando projeto, o `NOME` deve ser o mesmo usado na build
+
+### Rodar sem o docker, em dev
+
+- É possível rodar o projeto sem usar o docker para a build, somente para o database. Executando os comandos `npm i` e `npm start`.
