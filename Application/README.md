@@ -1,9 +1,5 @@
 # Prog2Project
 
-## Alunos
-
-- Willian Dal Pont & Jean Gondorek
-
 ## Breve descrição do projeto
 
 O objetivo do projeto é criar um sistema de gerencia para o escritório de advocacia (mais informações na pasta/arquivo `EngSoft1/README.md` ou `EngSoft1/Elicitação e Requisitos funcionais ENG1.pdf`).
