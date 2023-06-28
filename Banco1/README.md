@@ -8,7 +8,10 @@
 
 ## Projeto Lógico
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/26c5d108-1790-4fc5-b2a1-621151426d67)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/5699a312-d61f-405e-972b-48ffe719f2cb)
+
+
+
 
 ---
 
@@ -85,7 +88,7 @@ create table cliente (
     codigo_municipio_cliente varchar(7) not null,
     nacionalidade varchar(30) null,
     data_nascimento_cliente timestamp null,
-    telefone_cliente varchar(14) not null,
+    telefone_cliente varchar(14) null,
     celular_cliente varchar(14) not null,
     id_indicacao_cliente integer null,
     constraint pk_cliente primary key (cpf_cnpj_cliente),
