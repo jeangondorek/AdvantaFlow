@@ -37,4 +37,5 @@
 
 ## Diagrama caso de uso
 
+![Diagrama caso de uso](https://github.com/jeangondorek/Prog2Project/assets/38532877/918aa7c9-01e4-4b42-bbee-0e36799add40)
 
