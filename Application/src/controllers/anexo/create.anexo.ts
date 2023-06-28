@@ -1,30 +1,41 @@
 import { pool } from "../../imports";
-import { validarAnexo } from "../../middleware/validate.anexo";
 import { Anexo } from "../../models/anexo.model";
+import { validateData } from "../../middleware/validate.middleware";
 
 export const createAnexo = async (req: any, res: any) => {
-  const client = await pool.connect();
+  validateData(Anexo)(req, res, async () => {
+    const anexoData = req.body;
+    const anexo = new Anexo(anexoData);
 
-  try {
-    await client.query('BEGIN'); // Inicia a transação
+    const client = await pool.connect();
 
-    // Chama o middleware de validação antes de criar o anexo
-    validarAnexo(req, res, async () => {
-      const anexoData = req.body;
-      const anexo = new Anexo(anexoData);
+    try {
+      await client.query('BEGIN');
 
-      await anexo.save();
+      const insertAnexoQuery = `
+        INSERT INTO anexo (id_tarefa_anexo, nome_anexo, formato_anexo, tamanho_anexo, data_carregamento_anexo, caminho_arquivo_anexo)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING id_anexo`;
 
-      const insertedAnexoId = anexo.id_anexo; // Obtém o ID do anexo inserido
+      const result = await client.query(insertAnexoQuery, [
+        anexo.id_tarefa_anexo,
+        anexo.nome_anexo,
+        anexo.formato_anexo,
+        anexo.tamanho_anexo,
+        anexo.data_carregamento_anexo,
+        anexo.caminho_arquivo_anexo
+      ]);
 
-      await client.query('COMMIT'); // Confirma a transação
+      const insertedAnexoId = result.rows[0].id_anexo;
+
+      await client.query('COMMIT');
 
       res.json({ message: 'Inserido corretamente', id_anexo: insertedAnexoId });
-    });
-  } catch (error) {
-    await client.query('ROLLBACK'); // Reverte a transação em caso de erro
-    res.status(500).json({ error: 'Erro ao executar a consulta' });
-  } finally {
-    client.release();
-  }
+    } catch (error) {
+      await client.query('ROLLBACK');
+      res.status(500).json({ error: 'Erro ao executar a consulta' });
+    } finally {
+      client.release();
+    }
+  });
 };

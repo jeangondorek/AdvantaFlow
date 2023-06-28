@@ -1,21 +1,36 @@
 import { pool } from "../../imports";
+import { Assunto } from "../../models/assunto.model";
+import { validateData } from "../../middleware/validate.middleware";
 
-export const createAssunto = async (req: any,res: any) => {
-    pool.connect((error, client, release) => {
-        if (error) {
-        return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
-        }
+export const createAssunto = async (req: any, res: any) => {
+  validateData(Assunto)(req, res, async () => {
+    const assuntoData = req.body;
+    const assunto = new Assunto(assuntoData);
 
-        const descricaoAssunto = req.body.descricao_assunto;
+    const client = await pool.connect();
 
-        client.query("INSERT INTO assunto (descricao_assunto) VALUES ($1)", [descricaoAssunto], (queryError, result) => {
-        release();
+    try {
+      await client.query('BEGIN');
 
-        if (queryError) {
-            return res.status(500).json({ error: 'Erro ao executar a consulta' });
-        }
+      const insertAssuntoQuery = `
+        INSERT INTO assunto (descricao_assunto)
+        VALUES ($1)
+        RETURNING id_assunto`;
 
-        res.json(result.rows);
-        });
-    });
-}
+      const result = await client.query(insertAssuntoQuery, [
+        assunto.descricao_assunto,
+      ]);
+
+      const insertedAssuntoId = result.rows[0].id_assunto;
+
+      await client.query('COMMIT');
+
+      res.json({ message: 'Inserido corretamente', id_assunto: insertedAssuntoId });
+    } catch (error) {
+      await client.query('ROLLBACK');
+      res.status(500).json({ error: 'Erro ao executar a consulta' });
+    } finally {
+      client.release();
+    }
+  });
+};
