@@ -10,8 +10,138 @@
 
 ![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/5699a312-d61f-405e-972b-48ffe719f2cb)
 
+- DBDIAGRAM.IO
 
+```
+Table "perfil" {
+  "id_perfil" serial [pk, not null, increment]
+  "descricao_perfil" varchar(150) [not null]
+  "permissoes_perfil" varchar(30) [not null]
+  "permissoes_opcional_perfil" varchar(30)
+}
 
+Table "comarca" {
+  "id_comarca" serial [pk, not null, increment]
+  "descricao_comarca" varchar(100) [not null]
+}
+
+Table "indicacao" {
+  "id_indicacao" serial [pk, not null, increment]
+  "descricao_indicacao" varchar(100) [not null]
+  "detalhes_indicacao" varchar(300)
+}
+
+Table "assunto" {
+  "id_assunto" serial [pk, not null, increment]
+  "descricao_assunto" varchar(100) [not null]
+}
+
+Table "fase" {
+  "id_fase" serial [pk, not null, increment]
+  "descricao_fase" varchar(100) [not null]
+}
+
+Table "usuario" {
+  "cpf_usuario" varchar(11) [pk, not null]
+  "nome_usuario" varchar(40) [not null]
+  "status_usuario" varchar(10) [default: "Ativo"]
+  "telefone_usuario" varchar(20) [not null]
+  "oab_usuario" varchar(30)
+  "senha_hash_usuario" varchar(20) [not null]
+  "id_perfil_usuario" integer [not null]
+}
+
+Table "cliente" {
+  "nome_cliente" varchar(40) [not null]
+  "email_cliente" varchar(50) [not null]
+  "cpf_cnpj_cliente" varchar(14) [pk, not null]
+  "rg_cliente" varchar(10)
+  "sexo_cliente" varchar(100)
+  "profissao_cliente" varchar(40)
+  "cep_cliente" varchar(8) [not null]
+  "uf_cliente" varchar(2) [not null]
+  "bairro_cliente" varchar(30) [not null]
+  "endereco_cliente" varchar(30) [not null]
+  "codigo_municipio_cliente" varchar(7) [not null]
+  "nacionalidade" varchar(30)
+  "data_nascimento_cliente" timestamp
+  "telefone_cliente" varchar(14)
+  "celular_cliente" varchar(14) [not null]
+  "id_indicacao_cliente" integer
+}
+
+Table "processo" {
+  "id_processo" serial [pk, not null, increment]
+  "numero_cnpj_processo" varchar(20) [not null]
+  "descricao_processo" varchar(100) [not null]
+  "titulo_processo" varchar(50) [not null]
+  "resultado_processo" varchar(50)
+  "data_criacao_processo" timestamp [not null]
+  "id_comarca_processo" integer [not null]
+  "id_assunto_processo" integer [not null]
+  "id_fase_processo" integer [not null]
+  "cpf_cnpj_cliente_processo" varchar(14) [not null]
+  "cpf_usuario_processo" varchar(11) [not null]
+}
+
+Table "execucao" {
+  "id_execucao" serial [pk, not null, increment]
+  "cpf_usuario_execucao" varchar(11) [not null]
+  "id_processo_execucao" integer [not null]
+}
+
+Table "tarefa" {
+  "id_processo_tarefa" integer [not null]
+  "id_tarefa" serial [pk, not null, increment]
+  "funcao_tarefa" varchar(50) [not null]
+  "detalhes_tarefa" TEXT
+  "data_criacao_tarefa" timestamp [not null]
+  }
+
+Table "relacionado" {
+  "id_relacionado" serial [pk, not null, increment]
+  "cpf_usuario_relacionado" varchar(11) [not null]
+  "id_tarefa_relacionado" integer [not null]
+}
+
+Table "anexo" {
+  "id_anexo" serial [pk, not null, increment]
+  "id_tarefa_anexo" integer [not null]
+  "nome_anexo" varchar(100)
+  "formato_anexo" varchar(10)
+  "tamanho_anexo" integer
+  "data_carregamento_anexo" timestamp
+  "caminho_arquivo_anexo" varchar(200)
+}
+
+Ref "fk_usuario_perfil":"perfil"."id_perfil" < "usuario"."id_perfil_usuario"
+
+Ref "fk_cliente_indicacao":"indicacao"."id_indicacao" < "cliente"."id_indicacao_cliente"
+
+Ref "fk_processo_comarca":"comarca"."id_comarca" < "processo"."id_comarca_processo"
+
+Ref "fk_processo_assunto":"assunto"."id_assunto" < "processo"."id_assunto_processo"
+
+Ref "fk_processo_fase":"fase"."id_fase" < "processo"."id_fase_processo"
+
+Ref "fk_processo_cliente":"cliente"."cpf_cnpj_cliente" < "processo"."cpf_cnpj_cliente_processo"
+
+Ref "fk_processo_usuario":"usuario"."cpf_usuario" < "processo"."cpf_usuario_processo"
+
+Ref "fk_execucao_usuario":"usuario"."cpf_usuario" < "execucao"."cpf_usuario_execucao"
+
+Ref "fk_execucao_processo":"processo"."id_processo" < "execucao"."id_processo_execucao"
+
+Ref "fk_tarefa_processo":"processo"."id_processo" < "tarefa"."id_processo_tarefa"
+
+Ref "fk_relacionado_usuario":"usuario"."cpf_usuario" < "relacionado"."cpf_usuario_relacionado"
+
+Ref "fk_relacionado_tarefa":"tarefa"."id_tarefa" < "relacionado"."id_tarefa_relacionado"
+
+Ref "fk_anexo_tarefa":"tarefa"."id_tarefa" < "anexo"."id_tarefa_anexo"
+```
+
+![Diagrama](https://github.com/jeangondorek/Prog2Project/assets/38532877/21f3cef8-d861-4928-8bd6-51bb2ea5498a)
 
 ---
 
