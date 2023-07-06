@@ -2,7 +2,7 @@
 
 ## Projeto Conceitual
 
-![projetoConceitual](https://github.com/jeangondorek/Prog2Project/assets/80592079/c31a316a-4598-4cf4-9c4f-aed8f3d7e2d3)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/9b6273fe-93bb-49dc-83bd-2d7db0a78e33)
 
 ---
 
