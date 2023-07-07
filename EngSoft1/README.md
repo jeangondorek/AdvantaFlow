@@ -1,5 +1,3 @@
-# Engenharia de software
-
 ## Requisitos funcionais
 
 | ID  | REQUISITO FUNCIONAL  | TIPO DE USUÁRIO DO SISTEMA  | DESCRIÇÃO DO REQUISITO FUNCIONA  |
@@ -82,3 +80,22 @@
 - Caso de Uso: Feedback
   - Ator principal: Usuário
   - Descrição: O usuário tem acesso a um checkbox para envio de status, atualizações quanto ao processo via email/sms/whatsapp para o cliente.
+ 
+---
+
+## Prototipação
+
+- Descrição:
+  - Bem-vindo ao projeto de prototipação do nosso sistema de advocacia! Abaixo disponibilizamos as principais telas utilizadas no projeto, com o objetivo de criar uma experiência minimalista e de fácil usabilidade, concentrando-se principalmente na interface do usuário (UI) e na experiência do usuário (UX).
+  - O principal objetivo ao criar a prototipação das telas, foi desenvolver um sistema intuitivo e eficiente, para isso utilizamos uma interface limpa e minimalista que proporciona uma experiência mais agradável, reduzindo o tempo para conclusão das tarefas realizadas no sistema e por consequência sua complexidade. 
+- Segue [link](https://www.figma.com/file/gBygMICpClCvWtWF2LVMgA/Untitled?type=design&node-id=0%3A1&mode=design&t=NKJlGlyCqvuTzD2D-1) para visitar o projeto através do figma e acompanhar a criação das demais telas.
+  
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/66501ce1-2e9e-4486-8cb0-75031f545086)
+
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/397c5307-0c6c-4848-8a40-7cfa0de360bb)
+
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/e038c779-8ffb-403a-914d-9a524f2208ec)
+
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/41f19228-63ab-4281-9871-0f05ff2c76d0)
+
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/4f9e79e7-a0dd-45fd-b9ad-c4e007951c48)
