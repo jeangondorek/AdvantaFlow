@@ -294,7 +294,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cpf_cnpj_cliente\": \"122322153\",\n    \"nome_cliente\": \"jose iriney\",\n    \"email_cliente\": \"asfas@safasf.cm\",\n    \"bairro_cliente\": \"batt\",\n    \"telefone_cliente\": \"45456456\",\n    \"cep_cliente\": 5454856,\n    \"uf_cliente\": \"sc\",\n    \"celular_cliente\": 9876846,\n    \"codigo_municipio_cliente\": 2,\n    \"id_indicacao_cliente\": 1,\n    \"rg_cliente\": \"4554\",\n    \"sexo_cliente\": \"talvez\",\n    \"profissao_cliente\": \"seu guarda n sou vagabundo\",\n    \"endereco_cliente\": \"br\",\n    \"nacionalidade\": \"asfasgsa\",\n    \"data_nascimento_cliente\": \"2000-02-02\"\n}\n",
+							"raw": "{\n    \"cpf_cnpj_cliente\": \"122322153111\",\n    \"nome_cliente\": \"jose iriney\",\n    \"email_cliente\": \"asfas@safasf.cm\",\n    \"bairro_cliente\": \"batt\",\n    \"telefone_cliente\": \"45456456\",\n    \"cep_cliente\": 5454856,\n    \"uf_cliente\": \"sc\",\n    \"celular_cliente\": 9876846,\n    \"codigo_municipio_cliente\": 2,\n    \"rg_cliente\": \"4554\",\n    \"sexo_cliente\": \"talvez\",\n    \"profissao_cliente\": \"seu guarda n sou vagabundo\",\n    \"endereco_cliente\": \"br\",\n    \"nacionalidade\": \"asfasgsa\",\n    \"data_nascimento_cliente\": \"2000-02-02\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -786,12 +786,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}perfil/5",
+							"raw": "{{base_url}}perfil/2",
 							"host": [
 								"{{base_url}}perfil"
 							],
 							"path": [
-								"5"
+								"2"
 							]
 						}
 					},
@@ -804,7 +804,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"descricao_perfil\": \"123153\",\n    \"permissoes_perfil\": \"654\",\n    \"permissoes_opcional_perfil\": \"permissoes_opcional_perfil\"\n}",
+							"raw": "{\n    \"descricao_perfil\": \"123456\",\n    \"permissoes_perfil\": \"123\",\n    \"permissoes_opcional_perfil\": \"permissoes_opcional_perfil\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -902,11 +902,21 @@
 				{
 					"name": "Create",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"numero_cnpj_processo\": \"123456789\",\n  \"descricao_processo\": \"Descrição do processo\",\n  \"titulo_processo\": \"Título do processo\",\n  \"resultado_processo\": \"Resultado do processo\",\n  \"data_criacao_processo\": \"2023-06-26\",\n  \"id_comarca_processo\": 2,\n  \"id_assunto_processo\": 2,\n  \"id_fase_processo\": 1,\n  \"cpf_cnpj_cliente_processo\": \"122322153\",\n  \"cpf_usuario_processo\": \"1223215253\"\n}\n",
+							"raw": "{\n  \"numero_cnpj_processo\": \"12232215311\",\n  \"descricao_processo\": \"Descrição do processo\",\n  \"titulo_processo\": \"Título do processo\",\n  \"resultado_processo\": \"Resultado do processo\",\n  \"data_criacao_processo\": \"2023-06-26\",\n  \"id_comarca_processo\": 1,\n  \"id_assunto_processo\": 1,\n  \"id_fase_processo\": 1,\n  \"cpf_cnpj_cliente_processo\": \"122322153111\",\n  \"cpf_usuario_processo\": \"12232152523\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1032,6 +1042,16 @@
 				{
 					"name": "Get All",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1106,11 +1126,21 @@
 				{
 					"name": "Create",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"funcao_tarefa\": \"1223215253\",\n  \"detalhes_tarefa\": \"Descrição do processo\",\n  \"data_criacao_tarefa\": \"2023-06-26\",\n  \"id_processo_tarefa\": 4\n}\n",
+							"raw": "{\n  \"funcao_tarefa\": \"122322153111\",\n  \"detalhes_tarefa\": \"Descrição do processo\",\n  \"data_criacao_tarefa\": \"2023-06-26\",\n  \"id_processo_tarefa\": 11\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1134,6 +1164,16 @@
 				{
 					"name": "Get All",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -1175,17 +1215,54 @@
 				{
 					"name": "Put Cpf",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome_usuario\": \"willian bonner2\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"01234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789001234567890\",\n    \"id_perfil_usuario\": 3\n}",
+							"raw": "{\n    \"nome_usuario\": \"administrador\",\n    \"status_usuario\": \"ativo\",\n    \"telefone_usuario\": \"1234567890\",\n    \"oab_usuario\": \"null\",\n    \"senha_hash_usuario\": \"12232152523\",\n    \"id_perfil_usuario\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
+						"url": {
+							"raw": "{{base_url}}usuario/12232152523",
+							"host": [
+								"{{base_url}}usuario"
+							],
+							"path": [
+								"12232152523"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cpf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
 						"url": {
 							"raw": "{{base_url}}usuario/1223215253",
 							"host": [
@@ -1199,30 +1276,13 @@
 					"response": []
 				},
 				{
-					"name": "Delete Cpf",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}usuario/12345678909",
-							"host": [
-								"{{base_url}}usuario"
-							],
-							"path": [
-								"12345678909"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cpf_usuario\": \"12345678909\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 1\n}",
+							"raw": "{\n    \"cpf_usuario\": \"12232152523\",\n    \"nome_usuario\": \"ADMINISTRADOR DO MUNDO\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"12232152523\",\n    \"id_perfil_usuario\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1250,7 +1310,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"cpf_usuario\": \"1223215253\",\r\n  \"senha_hash_usuario\": \"1564165\"\r\n}",
+							"raw": "{\r\n  \"cpf_usuario\": \"1234567890\",\r\n  \"senha_hash_usuario\": \"senhadificil\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1321,7 +1381,7 @@
 		},
 		{
 			"key": "token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGZfdXN1YXJpbyI6IjEyMjMyMTUyNTMiLCJpYXQiOjE2ODkwNzQ4MjIsImV4cCI6MTY4OTA3ODQyMn0.uEoaccXfUwOkXgT0CVD2P6UY-CofOfKDi-JInmmEdfg",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGZfdXN1YXJpbyI6IjEyMjMyMTUyNTIzIiwiaWF0IjoxNjg5MDkzNzQwLCJleHAiOjE2ODkwOTczNDB9.E7V11NsQ0WQkLa8AlAlOW738vc2a2N2biry06cni2Wc",
 			"type": "string"
 		}
 	]

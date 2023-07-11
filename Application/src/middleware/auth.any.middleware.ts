@@ -8,7 +8,7 @@ declare module 'express-serve-static-core' {
   }
 }
 
-export const authadmMiddleware = (req: Request, res: Response, next: NextFunction) => {
+export const authanyMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers?.authorization?.split(' ')[1];
 
   if (!token) {
@@ -35,7 +35,7 @@ export const authadmMiddleware = (req: Request, res: Response, next: NextFunctio
           return res.status(500).json({ error: 'Erro ao executar a consulta' });
         }
         const [perfil] = [result.rows[0]];
-        if(perfil.id_perfil_usuario != 1){
+        if(perfil.id_perfil_usuario != 3 && perfil.id_perfil_usuario != 2 && perfil.id_perfil_usuario != 1){
           return res.status(403).json({ error: 'Você não tem acesso a essa rota' });
         }
         else{
