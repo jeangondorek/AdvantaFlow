@@ -143,7 +143,7 @@ Ref "fk_anexo_tarefa":"tarefa"."id_tarefa" < "anexo"."id_tarefa_anexo"
 
 ![Diagrama](https://github.com/jeangondorek/Prog2Project/assets/38532877/21f3cef8-d861-4928-8bd6-51bb2ea5498a)
 
----
+
 
 ## Projeto Físico
 
@@ -156,8 +156,6 @@ Ref "fk_anexo_tarefa":"tarefa"."id_tarefa" < "anexo"."id_tarefa_anexo"
 create database projetointegrador;
 
 \c projetointegrador;
-
-create extension pgcrypto;
 
 create table perfil (
     id_perfil serial not null,
@@ -284,7 +282,12 @@ create table anexo (
     constraint pk_anexo primary key (id_anexo),
     constraint fk_anexo_tarefa foreign key (id_tarefa_anexo) references tarefa(id_tarefa)
 );
+
+INSERT INTO perfil (descricao_perfil, permissoes_perfil, permissoes_opcional_perfil) VALUES ('administrador', 'total', 'administra todo o sistema');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567890', 'administrador', 'ativo', '1234567890', 'null', 'senhadificil', '1');
 ```
+
+- Necessário dar update na senha para encriptar para poder usar este usuário.
 
 ### Projeto rodadando em um docker com postgres
 
