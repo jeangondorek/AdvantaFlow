@@ -7,7 +7,7 @@ export const deletePerfil = async (req: any,res: any) => {
         }
 
         
-        client.query("DELETE FROM peril WHERE id_peril = $1", [req.params.id_peril], (queryError, result) => {
+        client.query("DELETE FROM perfil WHERE id_perfil = $1", [req.params.id_perfil], (queryError, result) => {
         release();
 
         if (queryError) {

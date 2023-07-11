@@ -1,4 +1,6 @@
 import { pool } from "../../imports";
+import bcrypt from 'bcryptjs';
+
 
 export const updateUsuario = async (req: any,res: any) => {
     pool.connect((error, client, release) => {
@@ -19,16 +21,28 @@ export const updateUsuario = async (req: any,res: any) => {
 
             res.json(result.rows);
             });
-        }else if (descricaoUsuario.senha_hash_usuario == null){
-            client.query("UPDATE usuario SET nome_usuario = $1 , status_usuario = $2, telefone_usuario = $3, oab_usuario = $4, id_perfil_usuario = $5 WHERE cpf_usuario = $6", [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, descricaoUsuario.oab_usuario, descricaoUsuario.id_perfil_usuario,  cpf_usuario], (queryError, result) => {
+        }else if (descricaoUsuario.senha_hash_usuario != null) {
+            // Gerar o hash da nova senha
+            bcrypt.hash(descricaoUsuario.senha_hash_usuario, 10, (hashError, hashedPassword) => {
+              if (hashError) {
                 release();
-    
-                if (queryError) {
+                return res.status(500).json({ error: 'Erro ao gerar o hash da senha' });
+              }
+          
+              client.query(
+                "UPDATE usuario SET nome_usuario = $1 , status_usuario = $2 , telefone_usuario = $3, senha_hash_usuario = $4, id_perfil_usuario = $5 WHERE cpf_usuario = $6",
+                [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, hashedPassword, descricaoUsuario.id_perfil_usuario, cpf_usuario],
+                (queryError, result) => {
+                  release();
+          
+                  if (queryError) {
                     return res.status(500).json({ error: 'Erro ao executar a consulta' });
+                  }
+          
+                  res.json(result.rows);
                 }
-    
-                res.json(result.rows);
-                });
+              );
+            });
         }else if (descricaoUsuario.oab_usuario != null){
             client.query("UPDATE usuario SET nome_usuario = $1 , status_usuario = $2 , telefone_usuario = $3, senha_hash_usuario = $4, id_perfil_usuario = $5 WHERE cpf_usuario = $6", [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, descricaoUsuario.senha_hash_usuario, descricaoUsuario.id_perfil_usuario,  cpf_usuario], (queryError, result) => {
                 release();

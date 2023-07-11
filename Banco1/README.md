@@ -80,7 +80,7 @@ create table usuario (
     status_usuario varchar(10) default 'Ativo',
     telefone_usuario varchar(20) not null,
     oab_usuario varchar (30) null, -- valor padrão é null mas vamos manter um padrão especificando pra ficar mais legível.
-    senha_hash_usuario varchar(20) not null,
+    senha_hash_usuario varchar(60) not null,
     id_perfil_usuario integer not null,
     constraint pk_usuario primary key (cpf_usuario),
     constraint fk_usuario_perfil foreign key (id_perfil_usuario) references perfil(id_perfil)
