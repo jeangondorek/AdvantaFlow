@@ -28,18 +28,35 @@ Melhorias seriam em relação ao armazenamento de arquivos, definição mais cla
 
 ## Funcionalidades planejadas e implementadas
 
+### Back-end
+
 - [X] Manter Usuário
 - [X] Manter Perfil
 - [X] Efetuar Login
 - [ ] Esqueci minha senha
 - [ ] Sair do sistema
-- [ ] Tela inicial
 - [X] Manter tarefa
 - [X] Manter cliente
 - [X] Manter processo
 - [X] Manter assuntos/tags do processo
 - [X] Manter comarca e tribunal do processo
 - [X] Manter fase do processo
+- [ ] Feedback ao cliente
+
+### Front-end
+
+- [ ] Manter Usuário
+- [ ] Manter Perfil
+- [ ] Efetuar Login
+- [ ] Esqueci minha senha
+- [ ] Sair do sistema
+- [ ] Tela inicial
+- [ ] Manter tarefa
+- [ ] Manter cliente
+- [ ] Manter processo
+- [ ] Manter assuntos/tags do processo
+- [ ] Manter comarca e tribunal do processo
+- [ ] Manter fase do processo
 - [ ] Feedback ao cliente
 
 ## Informações para rodar projeto
