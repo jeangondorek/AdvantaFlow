@@ -786,12 +786,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}perfil/1",
+							"raw": "{{base_url}}perfil/5",
 							"host": [
 								"{{base_url}}perfil"
 							],
 							"path": [
-								"1"
+								"5"
 							]
 						}
 					},
@@ -1148,15 +1148,25 @@
 				{
 					"name": "Get Cpf",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}usuario/123153",
+							"raw": "{{base_url}}usuario/12345678909",
 							"host": [
 								"{{base_url}}usuario"
 							],
 							"path": [
-								"123153"
+								"12345678909"
 							]
 						}
 					},
@@ -1169,7 +1179,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome_usuario\": \"willian bonner\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 3\n}",
+							"raw": "{\n    \"nome_usuario\": \"willian bonner2\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": 5454856,\n    \"senha_hash_usuario\": \"01234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789001234567890012345678900123456789001234567890\",\n    \"id_perfil_usuario\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1177,12 +1187,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}usuario/123153",
+							"raw": "{{base_url}}usuario/1223215253",
 							"host": [
 								"{{base_url}}usuario"
 							],
 							"path": [
-								"123153"
+								"1223215253"
 							]
 						}
 					},
@@ -1194,12 +1204,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}usuario/12232153",
+							"raw": "{{base_url}}usuario/12345678909",
 							"host": [
 								"{{base_url}}usuario"
 							],
 							"path": [
-								"12232153"
+								"12345678909"
 							]
 						}
 					},
@@ -1212,7 +1222,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"cpf_usuario\": \"1223215254\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 1\n}",
+							"raw": "{\n    \"cpf_usuario\": \"12345678909\",\n    \"nome_usuario\": \"jose iriney\",\n    \"status_usuario\": \"Ativo\",\n    \"telefone_usuario\": \"45456456\",\n    \"oab_usuario\": null,\n    \"senha_hash_usuario\": \"1564165\",\n    \"id_perfil_usuario\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1223,6 +1233,34 @@
 							"raw": "{{base_url}}usuario",
 							"host": [
 								"{{base_url}}usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "SINGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cpf_usuario\": \"1223215253\",\r\n  \"senha_hash_usuario\": \"1564165\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}login",
+							"host": [
+								"{{base_url}}login"
 							]
 						}
 					},
@@ -1279,6 +1317,11 @@
 		{
 			"key": "base_url",
 			"value": "https://jeangondorek-cautious-lamp-g5w54454gp5cqg4-5555.preview.app.github.dev/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcGZfdXN1YXJpbyI6IjEyMjMyMTUyNTMiLCJpYXQiOjE2ODkwNzQ4MjIsImV4cCI6MTY4OTA3ODQyMn0.uEoaccXfUwOkXgT0CVD2P6UY-CofOfKDi-JInmmEdfg",
 			"type": "string"
 		}
 	]

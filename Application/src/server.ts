@@ -19,7 +19,7 @@ server.use(cors(corsOptions));
 
 server.use(express.json());
 
-server.get('/', (req, res) => {
+server.get('/', (_req: any, res: { send: (arg0: string) => void; }) => {
     res.send(`Rodando em ${env} na porta ${port}`);
 });
 

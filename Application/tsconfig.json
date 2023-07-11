@@ -8,8 +8,14 @@
       "sourceMap": true,
       "strict": true,
       "noImplicitAny": true,
-      "resolveJsonModule": true
+      "resolveJsonModule": true,
+      "types": [
+        "node",
+        "express",
+        "./src/models/custom.d.ts"
+      ]
     },
+    "typeRoots": ["src/types", "node_modules/@types"],
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/*.spec.ts"]
 }

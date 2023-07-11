@@ -10,8 +10,10 @@ import * as processo from './processo/index.processo'
 import * as tarefa from './tarefa/index.tarefa'
 import * as execucao from './execucao/index.execucao'
 import * as relacionado from './relacionado/index.relacionado'
+import * as login from './login/singin.login'
 
 export {
+    login,
     usuario,
     fase,
     assunto,
