@@ -148,11 +148,6 @@ Ref "fk_anexo_tarefa":"tarefa"."id_tarefa" < "anexo"."id_tarefa_anexo"
 ## Projeto Físico
 
 ```sql
--- extensão do postgres que que realiza operações de hash
--- para inserir uma senha utilizando a extensão, é necessário usar a função crypt("Senha", gen_salt("bf"))
--- gel_salt é para especificar o algoritimo hash que vai ser utilizado, nesse caso é o  blowfish
--- para buscar uma senha é só utilizar na condição do select a função crypt
--- ex: where senha_hash = crypt('senha123', senha_hash);
 create database projetointegrador;
 
 \c projetointegrador;
@@ -195,7 +190,7 @@ create table usuario (
     nome_usuario varchar(40) not null,
     status_usuario varchar(10) default 'Ativo',
     telefone_usuario varchar(20) not null,
-    oab_usuario varchar (30) null, -- valor padrão é null mas vamos manter um padrão especificando pra ficar mais legível.
+    oab_usuario varchar (30) null,
     senha_hash_usuario varchar(60) not null,
     id_perfil_usuario integer not null,
     constraint pk_usuario primary key (cpf_usuario),
@@ -283,8 +278,92 @@ create table anexo (
     constraint fk_anexo_tarefa foreign key (id_tarefa_anexo) references tarefa(id_tarefa)
 );
 
+```
+
+## Insersão de tuplas
+
+```sql
 INSERT INTO perfil (descricao_perfil, permissoes_perfil, permissoes_opcional_perfil) VALUES ('administrador', 'total', 'administra todo o sistema');
+INSERT INTO perfil (descricao_perfil, permissoes_perfil, permissoes_opcional_perfil) VALUES ('advogado', 'advogado', 'gerencia quase todo o sistema');
+INSERT INTO perfil (descricao_perfil, permissoes_perfil, permissoes_opcional_perfil) VALUES ('estagiario', 'estagiario', 'gerencia pequenas partes dentro do sistema');
+-- AS SENHAS NÃO IRÃO FUNCIONAR NA APLICAÇÃO DEVIDO A CRIPTOGRAFIA SER CONTROLADA POR ELA, OU SEJA, A CRIAÇÃO FUNCIONA POR AQUI MAS O USO NÃO
+-- PODE SER DADO UM UPDATE EM UM REGISTRO PARA QUE FUNCIONE POR AQUI, OU USAR UM JWT VÁLIDO NA APLICAÇÃO PARA CRIA POR LÁ
 INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567890', 'administrador', 'ativo', '1234567890', 'null', 'senhadificil', '1');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567891', 'advogado', 'ativo', '1234567891', 'null', 'senhadificil', '2');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567892', 'advogado', 'ativo', '1234567892', 'null', 'senhadificil', '2');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567893', 'advogado', 'ativo', '1234567893', 'null', 'senhadificil', '2');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567894', 'estagiario', 'ativo', '1234567894', 'null', 'senhadificil', '3');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567895', 'estagiario', 'ativo', '1234567895', 'null', 'senhadificil', '3');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567896', 'estagiario', 'ativo', '1234567896', 'null', 'senhadificil', '3');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567897', 'estagiario', 'ativo', '1234567897', 'null', 'senhadificil', '3');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567898', 'estagiario', 'ativo', '1234567898', 'null', 'senhadificil', '3');
+INSERT INTO usuario (cpf_usuario, nome_usuario, status_usuario, telefone_usuario, oab_usuario, senha_hash_usuario, id_perfil_usuario) VALUES('1234567899', 'estagiario', 'ativo', '1234567899', 'null', 'senhadificil', '3');
+
+INSERT INTO comarca (descricao_comarca) VALUES ('COMARCA DE PRIMEIRA INSTANCIA DE TANGAMANDAPIO');
+INSERT INTO comarca (descricao_comarca) VALUES ('COMARCA DA SEGUNDA VARA DE VARSÓVIA');
+
+INSERT INTO assunto (descricao_assunto) VALUES ('CONTRATO DE VENDA DE IMÓVEL');
+INSERT INTO assunto (descricao_assunto) VALUES ('CONTRATO DE VENDA DE VEÍCULO');
+
+INSERT INTO fase (descricao_fase) VALUES ('INICIADO');
+INSERT INTO fase (descricao_fase) VALUES ('EM ANDAMENTO');
+INSERT INTO fase (descricao_fase) VALUES ('CONCLUÍDO');
+INSERT INTO fase (descricao_fase) VALUES ('AGUARDANDO DEFINIÇÃO');
+
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('CARLINHOS DE JESUS', 'CARLINHOSDEJESUS@EMAIL.COM', '12345678901', '65445687', 'MASCULINO', 'MÚSICO', '88888-888', 'SC', 'BAIRRO DA APARECIDA', 'RUA CAMALEAO N58', '123', 'BRASILEIRO', 
+'12/12/1875', '556688889874', '5566666668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('PREGOS E CIA', 'PREGOASAVENDA@EMAIL.COM', '12345678000118', 'null', 'null', 'null', '88888-888', 'SC', 'BAIRRO DA APARECIDA', 'RUA CAMALEAO N59', '113', 'null', 
+'12/01/1975', '556677889874', '5566677668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('CARLINHOS MAIA', 'CARLINHOSMAIA@EMAIL.COM', '12345678911', '65445657', 'MASCULINO', 'VENDEDOR', '88878-888', 'SC', 'BAIRRO DA PEDRA', 'RUA CALANGO N56', '13', 'BRASILEIRO', 
+'12/06/1995', '556688589874', '5566566668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('JENOVEVA DE JESUS', 'JENOVEVA@EMAIL.COM', '12345078901', '65452687', 'FEMININO', 'PROFESSORA', '88818-888', 'SC', 'BAIRRO DA LUZ', 'RUA ILUMINADA N666', '666', 'BRASILEIRO', 
+'02/02/2005', '556680189874', '5566876668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('ALFRIDA PEREIRA', 'AALFRIDA@EMAIL.COM', '12345610201', 'NULL', 'FEMININO', 'NULL', '81188-888', 'SC', 'BAIRRO NOOOOSSAA SENHORA', 'RUA FEIJAO N556', '3', 'BRASILEIRO', 
+'04/08/1995', '5566822889874', '5566565668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('ROMEU DE JESUS', 'RMJC@EMAIL.COM', '12345678601', 'NULL', 'MASCULINO', 'NULL', '88288-000', 'SC', 'BAIRRO UM', 'RUA PASTOR PEDRO N5563', '1', 'BRASILEIRO', 
+'04/08/1905', '556644889874', '5566446668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('ROMENILDO DA SILVA', 'ROMENILDO@EMAIL.COM', '12045078901', 'NULL', 'MASCULINO', 'NULL', '88122-888', 'SC', 'BAIRRO PADRE KESSIO', 'RUA SETE N556', '58', 'BRASILEIRO', 
+'12/02/1985', '556688229874', '5566622668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('PEDRO DA SILVA', 'PEDROSILVA@EMAIL.COM', '12345678111', 'NULL', 'MASCULINO', 'NULL', '82458-888', 'SC', 'BAIRRO DA DOIS', 'RUA MEIASEISSETE N586', '69', 'BRASILEIRO', 
+'20/12/2001', '556699889874', '5566699668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('JOSIAS DE SOUZA', 'JSSSSZ@EMAIL.COM', '12345670101', 'NULL', 'MASCULINO', 'NULL', '57888-888', 'SC', 'BAIRRO DA NORTE', 'RUA LOUVA DEUS N156', '321', 'BRASILEIRO', 
+'22/01/1999', '556687789874', '5566776668745', 'null');
+INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('MARQUINHOS RATO', 'MARQUINHOSRATO@EMAIL.COM', '12345671911', 'NULL', 'MASCULINO', 'NULL', '88018-888', 'SC', 'BAIRRO DA SOCORRO', 'RUA PANDA N18', '1014', 'BRASILEIRO', 
+'12/17/1955', '556688539874', '5566665368745', 'null');
+
+
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '1');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '1');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '1');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '2');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '2');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '2');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
+
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
 ```
 
 - Necessário dar update na senha para encriptar para poder usar este usuário.
