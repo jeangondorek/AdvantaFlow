@@ -331,7 +331,7 @@ INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, 
 '12/17/1955', '556688539874', '5566665368745', 'null');
 
 
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('112345678901', 'USUCAPIÃO', 'USUCAPIÃO - CARLINHOS DE JESUS', 'CONCLUÍDO', '2023-06-26', '1', '1', '1', '122322153111', '12345678901');
 INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
 INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
 INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', '', '', '', '', '', '', '', '', '');
