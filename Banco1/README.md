@@ -330,39 +330,38 @@ INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, 
 INSERT INTO cliente (nome_cliente, email_cliente, cpf_cnpj_cliente, rg_cliente, sexo_cliente, profissao_cliente, cep_cliente, uf_cliente, bairro_cliente, endereco_cliente, codigo_municipio_cliente , nacionalidade, data_nascimento_cliente , telefone_cliente , celular_cliente , id_indicacao_cliente) VALUES ('MARQUINHOS RATO', 'MARQUINHOSRATO@EMAIL.COM', '12345671911', null, 'MASCULINO', null, '88018888', 'SC', 'BAIRRO DA SOCORRO', 'RUA PANDA N18', '1014', 'BRASILEIRO', 
 '12/17/1955', '556688539874', '5566665368745', null);
 
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('112345678901', 'USUCAPIÃO', 'USUCAPIÃO - CARLINHOS DE JESUS', '3', '2023-06-26', '1', '1', '1', '12345678901', '1234567892');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456780001181', 'COMPRA DE IMÓVEL', 'COMPRA DE IMÓVEL - PREGOS E CIA', '1', '2023-06-26', '1', '1', '1', '12345678000118', '1234567891');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('120450789011', 'VENDA DE UM FUSCA', 'FUKA - ROMENILDO', '2', '2023-06-23', '1', '1', '1', '12045078901', '1234567892');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456786011', 'COMPRA DE UM TERRENO', 'TERRENO - ROMEU', '1', '2023-06-21', '2', '2', '2', '12345678601', '1234567891');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456102011', 'PROCESSO DE RETOMADA DE IMÓVEL', 'ALFRIDA', '4', '2023-05-26', '2', '2', '2', '12345610201', '1234567893');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123450789011', 'COMPRA DE KOMBI', 'KOMBI - JENOVEVA', '3', '2023-04-26', '1', '1', '1', '12345078901', '1234567893');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456789111', 'TROCA DE IMÓVEL POR VEÍCULO', 'TROCA - CARLINHOS MAIA', '1', '2023-06-29', '3', '3', '3', '12345678911', '1234567892');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456781111', 'COMPRA DE IMÓVEL', 'COMPRA IMOVEL - PEDRO SILVA', '1', '2023-04-26', '3', '3', '3', '12345678111', '1234567891');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456701011', 'VENDA DE IMÓVEL', 'VENDA IMOVEL - JOSIAS', '2', '2023-04-01', '1', '1', '1', '12345670101', '');
+INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('123456719111', 'ALUGUEL DE IMÓVEL', 'ALUGUEL - MARQUINHOS RATO', '2', '2023-05-26', '2', '2', '2', '12345671911', '1234567891');
 
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('112345678901', 'USUCAPIÃO', 'USUCAPIÃO - CARLINHOS DE JESUS', '3', '2023-06-26', '1', '1', '1', '122322153111', '12345678901');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'COMPRA DE IMÓVEL', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'VENDA DE UM FUSCA', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'COMPRA DE UM TERRENO', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'PROCESSO DE RETOMADA DE IMÓVEL', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'COMPRA DE KOMBI', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'TROCA DE IMÓVEL POR VEÍCULO', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'COMPRA DE IMÓVEL', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'VENDA DE IMÓVEL', '', '', '', '', '', '', '', '');
-INSERT INTO processo (numero_cnpj_processo, descricao_processo , titulo_processo , resultado_processo , data_criacao_processo , id_comarca_processo , id_assunto_processo , id_fase_processo , cpf_cnpj_cliente_processo , cpf_usuario_processo) VALUES ('', 'ALUGUEL DE IMÓVEL', 'ALUGUEL - MARQUINHOS RATO', '2', '', '', '', '', '', '12345671911');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('RELATÓRIO DE USO', 'RELATÓRIO DE USO DE IMÓVEL', '2023-06-27', '1');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('PROVAS DA POSSE', 'JUNTAR PROVAS DA POSSE DO IMOVEL', '2023-06-27', '1');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('HONORARIOS', 'CONTRATO COM HONORARIOS DO ADVOGADO', '2023-06-27', '1');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('CONTRATO', 'CRIAR CONTRATO DE COMPRA', '2023-06-27', '2');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('HONORARIOS', 'CONTRATO COM HONORARIOS DO ADVOGADO', '2023-06-27', '2');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('CONTRATO', 'CRIAR CONTRATO DE VENDA', '2023-06-25', '3');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('PROCURAÇÃO', 'PROCURAÇÃO PARA NEGOCIAÇÃO', '2023-06-26', '3');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('HONORARIOS', 'CONTRATO COM HONORARIOS DO ADVOGADO', '2023-06-27', '3');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('CONTRATO', 'CRIAR CONTRATO DE COMPRA', '2023-06-27', '4');
+INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('HONORARIOS', 'CONTRATO COM HONORARIOS DO ADVOGADO', '2023-06-27', '4');
 
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '1');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '1');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '1');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '2');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '2');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '2');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
-INSERT INTO tarefa (funcao_tarefa , detalhes_tarefa , data_criacao_tarefa, id_processo_tarefa) VALUES ('', '', '', '3');
-
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
-INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('', '');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567895', '1');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567892', '2');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567892', '3');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567895', '4');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567891', '5');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567895', '6');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567892', '7');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567892', '8');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567895', '9');
+INSERT INTO relacionado (cpf_usuario_relacionado, id_tarefa_relacionado ) VALUES ('1234567891', '10');
 ```
 
 - Necessário dar update na senha para encriptar para poder usar este usuário.
