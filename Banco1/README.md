@@ -400,4 +400,9 @@ sudo /etc/init.d/postgresql stop
 
 ### Limpando docker
 
-- `docker system prune`
+```bash
+  docker stop NOMECONTAINER
+  ```
+```bash
+  docker system prune
+  ```
