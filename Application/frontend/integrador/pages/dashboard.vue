@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <h1>processo</h1>
-    </div>
+        <dashboardComponent/>
 </template>
 
 <script>
     export default {
-        name: 'processo',
+        name: 'dashboard',
         data() {
             return {
 
@@ -18,5 +16,4 @@
 </script>
 
 <style scoped>
-
 </style>
