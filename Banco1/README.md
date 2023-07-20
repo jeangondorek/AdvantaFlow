@@ -2,13 +2,13 @@
 
 ## Projeto Conceitual
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/9b6273fe-93bb-49dc-83bd-2d7db0a78e33)
+![image]()
 
 ---
 
 ## Projeto Lógico
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/5699a312-d61f-405e-972b-48ffe719f2cb)
+![logico]()
 
 - DBDIAGRAM.IO
 
@@ -141,7 +141,7 @@ Ref "fk_relacionado_tarefa":"tarefa"."id_tarefa" < "relacionado"."id_tarefa_rela
 Ref "fk_anexo_tarefa":"tarefa"."id_tarefa" < "anexo"."id_tarefa_anexo"
 ```
 
-![Diagrama](https://github.com/jeangondorek/Prog2Project/assets/38532877/21f3cef8-d861-4928-8bd6-51bb2ea5498a)
+![diagrama](https://github.com/jeangondorek/Prog2Project/assets/38532877/490dad30-88ae-48c1-8964-199392ae2acc)
 
 
 
