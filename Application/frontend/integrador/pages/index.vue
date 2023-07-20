@@ -2,14 +2,14 @@
   <body>
     <section id="containerLogin">
       <h1>login</h1>
-      <div id="containerUsuario">
-        <p>Usuário</p>
-        <input v-model="usuario" type="text" placeholder="Ex: willianpont">
+      <div id="containerCPF">
+        <p>CPF</p>
+        <input v-model="cpfUsuario" type="text" placeholder="Ex: 11173647599">
       </div>
       <div id="containerSenha">
         <p>Senha</p>
         <input v-model="password" :type="typePass" placeholder="Ex: senha123">
-        <img @click="alterTypePassword" src="../static/passwordIcon.png" alt="">
+        <img @click="alterTypePassword" src="../static/password-icon.png" alt="">
       </div>
       <div id="containerAdicionais">
         <div id="adicionaisLembrarLogin">
@@ -32,7 +32,7 @@ export default {
   data() {
       return {
         typePass: 'password',
-        usuario: '',
+        cpfUsuario: '',
         password: '',
         savePassword: true,
       }
@@ -41,13 +41,13 @@ export default {
     const login = JSON.parse(localStorage.getItem('login'));
 
     if (!login.savePassword) {
-      this.usuario = '';
+      this.cpfUsuario = '';
       this.password = '';
       this.savePassword = false;
       return
     }
 
-    this.usuario = login.usuario;
+    this.cpfUsuario = login.cpfUsuario;
     this.password = login.password;
   },
   methods: {
@@ -55,7 +55,7 @@ export default {
       this.typePass = this.typePass === 'password' ? 'text' : 'password';
     },
     async login() {
-      if (!this.usuario || !this.password) {
+      if (!this.cpfUsuario || !this.password) {
         alert("Necessário informar login e senha!");
         return;
       }
@@ -65,7 +65,7 @@ export default {
         headers: {
           'Content-Type': 'application/json', 
         },
-        body: JSON.stringify({"cpf_usuario": this.usuario, "senha_hash_usuario": this.password})
+        body: JSON.stringify({"cpf_usuario": this.cpfUsuario, "senha_hash_usuario": this.password})
       })
       .then((resp) => resp.json())
       .catch(error => alert(`Ocorreu um erro: ${error}`))
@@ -76,7 +76,7 @@ export default {
       }
 
       localStorage.setItem('login',
-        JSON.stringify({usuario:this.usuario, password:this.password, savePassword:this.savePassword})
+        JSON.stringify({cpfUsuario:this.cpfUsuario, password:this.password, savePassword:this.savePassword})
       )
       this.$router.push('/dashboard');
     }
@@ -92,21 +92,13 @@ export default {
 <style scoped>
   * {
     font-family: 'Source Sans Pro', 'sans-serif';
-    --font-family-titulo: 'Inter', 'sans-serif';
-    --color-title: #FCFCFC;
-    --color-text: #9CA3AF;
-    --border-bottom-color: #EDEDED;
-    --border-input: #374151;
-  }
-  body {
-    background-color: #1C1A20;
   }
   h1 {
     text-align: center;
     font-size: 18px;
     text-transform: uppercase;
     color: var(--color-title);
-    font-family: var(--font-family-titulo);
+    font-family:'Inter', sans-serif;
     padding: 77px 0 97px 0;
   }
   #containerLogin {
@@ -119,7 +111,7 @@ export default {
     border-radius: 8px;
     background: linear-gradient(224deg, rgba(54, 49, 64, 0.14) 0%, rgba(255, 255, 255, 0.03) 100%); 
   }
-  #containerUsuario, #containerSenha, #containerAdicionais {
+  #containerCPF, #containerSenha, #containerAdicionais {
     width: 453px;
     margin: 0 auto;
   }
@@ -132,10 +124,10 @@ export default {
     left: 90%;
     cursor: pointer;
   }
-  #containerUsuario {
+  #containerCPF {
     margin-bottom: 29px;
   }
-  #containerUsuario input, #containerSenha input {
+  #containerCPF input, #containerSenha input {
     width: 453px;
     height: 48px;
     background-color: #111827;
@@ -144,7 +136,7 @@ export default {
     padding: 8px 12px;
     color: var(--color-text);
   }
-  #containerUsuario p, #containerSenha p {
+  #containerCPF p, #containerSenha p {
     margin-bottom: 5px;
     color: #E5E7EB;
   }

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Empresa teste</h1>
+        <menuComponent/>
+        <h1 style="margin-left: 400px; color: white;">Empresa teste</h1>
     </div>
 </template>
 
