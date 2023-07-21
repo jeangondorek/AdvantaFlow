@@ -90,12 +90,12 @@
   - O principal objetivo ao criar a prototipação das telas, foi desenvolver um sistema intuitivo e eficiente, para isso utilizamos uma interface limpa e minimalista que proporciona uma experiência mais agradável, reduzindo o tempo para conclusão das tarefas realizadas no sistema e por consequência sua complexidade. 
 - Segue [link](https://www.figma.com/file/gBygMICpClCvWtWF2LVMgA/Untitled?type=design&node-id=0%3A1&mode=design&t=NKJlGlyCqvuTzD2D-1) para visitar o projeto através do figma e acompanhar a criação das demais telas.
   
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/66501ce1-2e9e-4486-8cb0-75031f545086)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/0cb212fd-0645-4374-858c-2bac5f4eba97)
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/397c5307-0c6c-4848-8a40-7cfa0de360bb)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/86870ad5-b58e-4b8b-90c0-6fad25a7e78b)
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/e038c779-8ffb-403a-914d-9a524f2208ec)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/302ac62b-ab55-4a26-826a-58313f9eb802)
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/41f19228-63ab-4281-9871-0f05ff2c76d0)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/bdae4875-06a6-47cd-a4e8-9cd486881d09)
 
-![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/4f9e79e7-a0dd-45fd-b9ad-c4e007951c48)
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/1866dd6a-8c0b-481c-a0c4-6ab3eda71112)
