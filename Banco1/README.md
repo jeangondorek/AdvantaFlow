@@ -2,13 +2,13 @@
 
 ## Projeto Conceitual
 
-![image]()
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/7d638346-f957-4f17-a45b-942160b84bef)
 
 ---
 
 ## Projeto Lógico
 
-![logico]()
+![image](https://github.com/jeangondorek/Prog2Project/assets/80592079/4d8f9e80-4a40-483e-9e21-cfe727b1b09f)
 
 - DBDIAGRAM.IO
 
