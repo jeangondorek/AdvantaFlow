@@ -24,7 +24,6 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
   modules: [
-    //'@nuxtjs/axios',
   ],
 
   axios: {
