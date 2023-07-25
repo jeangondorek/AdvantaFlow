@@ -93,7 +93,7 @@
                     "cpf_usuario_processo": this.cpfUsuario
                 };
 
-                fetch('http://localhost:5555/processo', {
+                fetch( process.env.VUE_APP_ROOT_API + '/processo', {
                     method: 'POST',
                     headers: {
                     'Content-Type': 'application/json', 

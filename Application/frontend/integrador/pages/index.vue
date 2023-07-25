@@ -60,7 +60,7 @@ export default {
         return;
       }
     
-      const statusLogin = await fetch('http://localhost:5555/login', {
+      const statusLogin = await fetch(process.env.VUE_APP_ROOT_API + '/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', 
