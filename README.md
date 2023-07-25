@@ -17,3 +17,10 @@ Dentro da pasta na Application existem os fontes do projeto. E o README com inst
 ### Engenharia de software 1
 
 Dentro da pasta EngSoft1 tem o arquivo .pdf com o todos os dados do projeto de engenharia e o README com as informações dos RF's e RNF's assim como o diagrama de caso.
+
+front https://vercel.com/
+
+api https://render.com/
+
+banco https://neon.tech/
+
