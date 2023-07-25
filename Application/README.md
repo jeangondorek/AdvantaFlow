@@ -19,6 +19,7 @@ O objetivo do projeto é criar um sistema de gerencia para o escritório de advo
 - [PostgreSQL](https://www.postgresql.org/docs/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [NPM (Node Package Manager)](https://docs.npmjs.com/)
+- [Nuxt](https://nuxt.com/docs)
 
 ## Problema real
 
