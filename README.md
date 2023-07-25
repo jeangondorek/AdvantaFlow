@@ -24,3 +24,4 @@ api https://render.com/
 
 banco https://neon.tech/
 
+https://www.youtube.com/watch?v=ZBlW5IBdhKk&list=PLDqnSpzNKDvn-3cpMf3yPn7gTnb3ooy4b&index=1&ab_channel=AngeloLuz
