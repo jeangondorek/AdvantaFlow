@@ -2,3 +2,9 @@
 /*/dist/
 /*/package-lock.json
 /*/build
+/*/*/*/node_modules/
+/*/*/*/.nuxt/
+/*/*/*/.output/
+/*/*/*/package-lock.json
+/*/*/*/.env
+/*/.env/
