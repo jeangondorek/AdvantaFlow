@@ -1,5 +1,5 @@
-import { pool } from './src/imports';
-import { server, env, port } from './src/server';
+import { pool } from './imports';
+import { server, env, port } from './server';
 
 pool.connect()
   .then(() => {

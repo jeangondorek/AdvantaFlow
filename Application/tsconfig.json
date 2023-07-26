@@ -11,8 +11,7 @@
       "resolveJsonModule": true,
       "types": [
         "node",
-        "express",
-        "./src/models/custom.d.ts"
+        "express"
       ]
     },
     "typeRoots": ["src/types", "node_modules/@types"],

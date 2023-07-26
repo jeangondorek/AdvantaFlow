@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsnd index.ts --watch",
+    "start": "tsc && node dist/index.js",
+    "start:dev": "tsnd src/index.ts --watch",
     "build": "tsc"
   },
   "repository": {
