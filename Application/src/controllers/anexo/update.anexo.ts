@@ -1,11 +1,19 @@
 import { pool } from "../../imports";
 import { Anexo } from "../../models/anexo.model";
 import { validateData } from "../../middleware/validate.middleware";
+import { validateAnexo } from "../../middleware/validatedata/validate.anexo.middleware";
 
-export const updateAnexo = async (req: any, res: any) => {
-    validateData(Anexo)(req, res, async () => {
+export const updateAnexo = async (req: any, res: any) => {    
+      validateData(Anexo)(req, res, async () => {
         const anexo = req.body;
         const id_anexo = req.params.id_anexo;
+
+        const validationErrors = validateAnexo(anexo);
+
+        if (validationErrors.length > 0) {
+            res.status(400).json({ errors: validationErrors });
+            return;
+        }
 
         const client = await pool.connect();
 

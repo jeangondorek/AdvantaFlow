@@ -16,7 +16,7 @@ export const deleteAssunto = async (req: any, res: any) => {
                 return res.json('Registro não encontrado. Nada foi excluído.');
             }
 
-            const checkFKQuery = "SELECT 1 FROM outra_tabela WHERE id_assunto = $1";
+            const checkFKQuery = "SELECT * FROM processo WHERE id_assunto_processo = $1";
             const checkFKResult = await client.query(checkFKQuery, [req.params.id_assunto]);
 
             if (checkFKResult.rows.length > 0) {

@@ -1,11 +1,19 @@
 import { pool } from "../../imports";
 import { validateData } from "../../middleware/validate.middleware";
+import { validateAssunto } from "../../middleware/validatedata/validate.assunto.middleware";
 import { Assunto } from "../../models/assunto.model";
 
 export const updateAssunto = async (req: any,res: any) => {
     validateData(Assunto)(req, res, async () => {
         const assunto = req.body;
         const id_assunto = req.params.id_assunto;
+
+        const validationErrors = validateAssunto(assunto);
+
+        if (validationErrors.length > 0) {
+        res.status(400).json({ errors: validationErrors });
+        return;
+        }
 
         const client = await pool.connect();
 
