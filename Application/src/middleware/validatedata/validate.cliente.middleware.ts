@@ -1,6 +1,6 @@
 import { Cliente } from "../../models/cliente.model";
 
-export function validateCliente(cliente: Cliente): string[] {
+export function validateCliente(cliente: Cliente, cpf_cnpj_cliente: string): string[] {
   const errors: string[] = [];
 
   function isString(value: any, minLength: number, maxLength: number): boolean {
@@ -23,8 +23,10 @@ export function validateCliente(cliente: Cliente): string[] {
     errors.push('O email_cliente deve ter entre 1 e 50 caracteres e ser um endereço de email válido.');
   }
 
-  if (!isString(cliente.cpf_cnpj_cliente, 14, 14)) {
-    errors.push('O cpf_cnpj_cliente deve ter exatamente 14 caracteres.');
+  if(!cpf_cnpj_cliente){
+    if (!isString(cliente.cpf_cnpj_cliente, 11, 14)) {
+      errors.push('O cpf_cnpj_cliente deve ter 11 ou 14 caracteres.');
+    }
   }
 
   if (cliente.rg_cliente && !isString(cliente.rg_cliente, 1, 10)) {

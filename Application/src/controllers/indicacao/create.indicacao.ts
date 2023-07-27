@@ -1,7 +1,7 @@
 import { pool } from "../../imports";
-import { Indicacao } from "../../models/indicacao.model";
 import { validateData } from "../../middleware/validate.middleware";
 import { validateIndicacao } from "../../middleware/validatedata/validate.indicacao.middleware";
+import { Indicacao } from "../../models/indicacao.model";
 
 export const createIndicacao = async (req: any, res: any) => {
   validateData(Indicacao)(req, res, async () => {
@@ -27,6 +27,7 @@ export const createIndicacao = async (req: any, res: any) => {
 
       const result = await client.query(insertIndicacaoQuery, [
         indicacao.descricao_indicacao,
+        indicacao.detalhes_indicacao,
       ]);
 
       const insertedIndicacaoId = result.rows[0].id_indicacao;

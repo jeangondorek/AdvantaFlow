@@ -30,12 +30,13 @@ export const updateIndicacao = async (req: any, res: any) => {
       const updateIndicacaoQuery = `
         UPDATE indicacao 
         SET descricao_indicacao = $1,
-        detalhes_indicacao =$2,
+        detalhes_indicacao = $2
         WHERE id_indicacao = $3
         RETURNING id_indicacao`;
 
       const result = await client.query(updateIndicacaoQuery, [
         indicacao.descricao_indicacao,
+        indicacao.detalhes_indicacao,
         id_indicacao
       ]);
 

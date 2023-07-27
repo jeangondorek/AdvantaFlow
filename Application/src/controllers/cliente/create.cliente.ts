@@ -3,10 +3,11 @@ import { Cliente } from "../../models/cliente.model";
 import { validateCliente } from "../../middleware/validatedata/validate.cliente.middleware";
 
 export const createCliente = async (req: any, res: any) => {
+  const controleupdate = '';
   const clienteData = req.body;
   const cliente = new Cliente(clienteData);
 
-  const validationErrors = validateCliente(cliente);
+  const validationErrors = validateCliente(cliente, controleupdate);
 
   if (validationErrors.length > 0) {
     res.status(400).json({ errors: validationErrors });
