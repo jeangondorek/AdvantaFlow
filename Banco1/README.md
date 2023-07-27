@@ -64,7 +64,7 @@ Table "cliente" {
   "endereco_cliente" varchar(30) [not null]
   "codigo_municipio_cliente" varchar(7) [not null]
   "nacionalidade" varchar(30)
-  "data_nascimento_cliente" timestamp
+  "data_nascimento_cliente" DATE
   "telefone_cliente" varchar(14)
   "celular_cliente" varchar(14) [not null]
   "id_indicacao_cliente" integer
@@ -76,7 +76,7 @@ Table "processo" {
   "descricao_processo" varchar(100) [not null]
   "titulo_processo" varchar(50) [not null]
   "resultado_processo" varchar(50)
-  "data_criacao_processo" timestamp [not null]
+  "data_criacao_processo" DATE [not null]
   "id_comarca_processo" integer [not null]
   "id_assunto_processo" integer [not null]
   "id_fase_processo" integer [not null]
@@ -95,7 +95,7 @@ Table "tarefa" {
   "id_tarefa" serial [pk, not null, increment]
   "funcao_tarefa" varchar(50) [not null]
   "detalhes_tarefa" TEXT
-  "data_criacao_tarefa" timestamp [not null]
+  "data_criacao_tarefa" DATE [not null]
   }
 
 Table "relacionado" {
@@ -110,7 +110,7 @@ Table "anexo" {
   "nome_anexo" varchar(100)
   "formato_anexo" varchar(10)
   "tamanho_anexo" integer
-  "data_carregamento_anexo" timestamp
+  "data_carregamento_anexo" DATE
   "caminho_arquivo_anexo" varchar(200)
 }
 
@@ -210,7 +210,7 @@ create table cliente (
     endereco_cliente varchar(30) not null,
     codigo_municipio_cliente varchar(7) not null,
     nacionalidade varchar(30) null,
-    data_nascimento_cliente timestamp null,
+    data_nascimento_cliente DATE null,
     telefone_cliente varchar(14) null,
     celular_cliente varchar(14) not null,
     id_indicacao_cliente integer null,
@@ -224,7 +224,7 @@ create table processo (
     descricao_processo varchar(100) not null,
     titulo_processo varchar(50) not null,
     resultado_processo varchar(50),
-    data_criacao_processo timestamp not null,
+    data_criacao_processo DATE not null,
     id_comarca_processo integer not null,
     id_assunto_processo integer not null,
     id_fase_processo integer not null,
@@ -251,7 +251,7 @@ create table tarefa (
     id_tarefa serial not null,
     funcao_tarefa varchar(50) not null,
     detalhes_tarefa TEXT,
-    data_criacao_tarefa timestamp not null,
+    data_criacao_tarefa DATE not null,
     id_processo_tarefa integer not null,
     constraint pk_tarefa primary key (id_tarefa),
     constraint fk_tarefa_processo foreign key (id_processo_tarefa) references processo(id_processo)
@@ -272,7 +272,7 @@ create table anexo (
     nome_anexo varchar(100),
     formato_anexo varchar(10),
     tamanho_anexo integer,
-    data_carregamento_anexo timestamp,
+    data_carregamento_anexo DATE,
     caminho_arquivo_anexo varchar(200),
     constraint pk_anexo primary key (id_anexo),
     constraint fk_anexo_tarefa foreign key (id_tarefa_anexo) references tarefa(id_tarefa)

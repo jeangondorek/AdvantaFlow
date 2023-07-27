@@ -1,21 +1,19 @@
 import { pool } from "../../imports";
 
 export const getbyidProcesso = async (req: any,res: any) => {
-    pool.connect((error, client, release) => {
-        if (error) {
-        return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
+    try {
+        const client = await pool.connect();
+        const result = await client.query('SELECT * FROM processo where id_processo = $1',  [req.params.id_processo]);
+        client.release();
+
+        const select_result = result.rows;
+
+        if (select_result.length < 1) {
+            return res.json('Não existem dados para serem exibidos.');
+        } else {
+            return res.json(select_result);
         }
-
-        const id_processo = req.params.id_processo;
-
-        client.query('SELECT * FROM processo where id_processo = $1', [id_processo], (queryError, result) => {
-        release();
-
-        if (queryError) {
-            return res.status(500).json({ error: 'Erro ao executar a consulta' });
-        }
-
-        res.json(result.rows);
-        });
-    });
+    } catch (error) {
+        return res.status(500).json({ error: 'Erro ao executar a consulta' });
+    }
 }

@@ -1,33 +1,44 @@
 import { pool } from "../../imports";
+import { Perfil } from "../../models/perfil.model";
+import { validateData } from "../../middleware/validate.middleware";
+import { validatePerfil } from "../../middleware/validatedata/validate.perfil.middleware";
 
-export const createPerfil = async (req: any,res: any) => {
-    pool.connect((error, client, release) => {
-        if (error) {
-        return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
-        }
+export const createPerfil = async (req: any, res: any) => {
+  validateData(Perfil)(req, res, async () => {
+    const perfilData = req.body;
+    const perfil = new Perfil(perfilData);
 
-        const descricaoPerfil = req.body;
-        
-        if( descricaoPerfil.permissoes_opcional_perfil != null){
-            client.query("INSERT INTO perfil (descricao_perfil, permissoes_perfil, permissoes_opcional_perfil) VALUES ($1, $2, $3)", [descricaoPerfil.descricao_perfil, descricaoPerfil.permissoes_perfil, descricaoPerfil.permissoes_opcional_perfil], (queryError, result) => {
-            release();
+    const validationErrors = validatePerfil(perfil);
 
-            if (queryError) {
-                return res.status(500).json({ error: 'Erro ao executar a consulta' });
-            }
+    if (validationErrors.length > 0) {
+      res.status(400).json({ errors: validationErrors });
+      return;
+    }
 
-            res.json(result.rows);
-            });}
-        else{
-            client.query("INSERT INTO perfil (descricao_perfil, permissoes_perfil) VALUES ($1, $2)", [descricaoPerfil.descricao_perfil, descricaoPerfil.permissoes_perfil], (queryError, result) => {
-            release();
+    const client = await pool.connect();
 
-            if (queryError) {
-                return res.status(500).json({ error: 'Erro ao executar a consulta' });
-            }
+    try {
+      await client.query('BEGIN');
+    
+      const insertPerfilQuery = `
+        INSERT INTO perfil (descricao_perfil, permissoes_perfil,permissoes_opcional_perfil)
+        VALUES ($1, $2, $3)
+        RETURNING id_perfil`;
 
-            res.json(result.rows);
-            });
-        }
-    });
-}
+      const result = await client.query(insertPerfilQuery, [
+        perfil.descricao_perfil,
+      ]);
+
+      const insertedPerfilId = result.rows[0].id_perfil;
+
+      await client.query('COMMIT');
+
+      res.json({ message: 'Perfil criada com sucesso', id_perfil: insertedPerfilId });
+    } catch (error) {
+      await client.query('ROLLBACK');
+      res.status(500).json({ error: 'Erro ao executar a consulta' });
+    } finally {
+      client.release();
+    }
+  });
+};

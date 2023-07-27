@@ -1,69 +1,59 @@
 import { pool } from "../../imports";
-import bcrypt from 'bcryptjs';
+import { validateData } from "../../middleware/validate.middleware";
+import { validateUsuario } from "../../middleware/validatedata/validate.usuario.middleware";
+import { Usuario } from "../../models/usuario.model";
 
+export const updateUsuario = async (req: any, res: any) => {
+  validateData(Usuario)(req, res, async () => {
+    const usuario = req.body;
+    const cpf_usuario = req.params.cpf_usuario;
 
-export const updateUsuario = async (req: any,res: any) => {
-    pool.connect((error, client, release) => {
-        if (error) {
-        return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
-        }
+    const validationErrors = validateUsuario(usuario);
 
-        const descricaoUsuario = req.body;
-        const cpf_usuario = req.params.cpf_usuario;
-        
-        if( descricaoUsuario.oab_usuario == null && descricaoUsuario.senha_hash_usuario == null){
-            client.query("UPDATE usuario SET nome_usuario = $1 , status_usuario = $2 , telefone_usuario = $3 , id_perfil_usuario = $4 WHERE cpf_usuario = $5", [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, descricaoUsuario.id_perfil_usuario,  cpf_usuario], (queryError, result) => {
-            release();
+    if (validationErrors.length > 0) {
+      res.status(400).json({ errors: validationErrors });
+      return;
+    }
 
-            if (queryError) {
-                return res.status(500).json({ error: 'Erro ao executar a consulta' });
-            }
+    const client = await pool.connect();
 
-            res.json(result.rows);
-            });
-        }else if (descricaoUsuario.senha_hash_usuario != null) {
-            // Gerar o hash da nova senha
-            bcrypt.hash(descricaoUsuario.senha_hash_usuario, 10, (hashError, hashedPassword) => {
-              if (hashError) {
-                release();
-                return res.status(500).json({ error: 'Erro ao gerar o hash da senha' });
-              }
-          
-              client.query(
-                "UPDATE usuario SET nome_usuario = $1 , status_usuario = $2 , telefone_usuario = $3, senha_hash_usuario = $4, id_perfil_usuario = $5 WHERE cpf_usuario = $6",
-                [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, hashedPassword, descricaoUsuario.id_perfil_usuario, cpf_usuario],
-                (queryError, result) => {
-                  release();
-          
-                  if (queryError) {
-                    return res.status(500).json({ error: 'Erro ao executar a consulta' });
-                  }
-          
-                  res.json(result.rows);
-                }
-              );
-            });
-        }else if (descricaoUsuario.oab_usuario != null){
-            client.query("UPDATE usuario SET nome_usuario = $1 , status_usuario = $2 , telefone_usuario = $3, senha_hash_usuario = $4, id_perfil_usuario = $5 WHERE cpf_usuario = $6", [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, descricaoUsuario.senha_hash_usuario, descricaoUsuario.id_perfil_usuario,  cpf_usuario], (queryError, result) => {
-                release();
-    
-                if (queryError) {
-                    return res.status(500).json({ error: 'Erro ao executar a consulta' });
-                }
-    
-                res.json(result.rows);
-                });
-        }
-        else{
-            client.query("UPDATE usuario SET nome_usuario = $1 , status_usuario = $2 , telefone_usuario = $3 , oab_usuario = $4 , senha_hash_usuario = $5, id_perfil_usuario = $6 WHERE cpf_usuario = $7", [descricaoUsuario.nome_usuario, descricaoUsuario.status_usuario, descricaoUsuario.telefone_usuario, descricaoUsuario.oab_usuario, descricaoUsuario.senha_hash_usuario, descricaoUsuario.id_perfil_usuario,  cpf_usuario], (queryError, result) => {
-                release();
-    
-                if (queryError) {
-                    return res.status(500).json({ error: 'Erro ao executar a consulta' });
-                }
-    
-                res.json(result.rows);
-                });
-            }
-    });
-}
+    try {
+      await client.query('BEGIN');
+
+      const selectQuery = "SELECT * FROM usuario WHERE cpf_usuario = $1";
+      const selectResult = await client.query(selectQuery, [cpf_usuario]);
+
+      if (selectResult.rows.length < 1) {
+        return res.json('Registro não encontrado. Nada foi atualizado.');
+      }
+
+      const updateUsuarioQuery = `
+        UPDATE usuario 
+        SET nome_usuario = $1, status_usuario = $2, telefone_usuario = $3,
+          oab_usuario = $4, senha_hash_usuario = $5, id_perfil_usuario = $6
+        WHERE cpf_usuario = $7
+        RETURNING cpf_usuario`;
+
+      const result = await client.query(updateUsuarioQuery, [
+        usuario.nome_usuario,
+        usuario.status_usuario || 'Ativo',
+        usuario.telefone_usuario,
+        usuario.oab_usuario || null,
+        usuario.senha_hash_usuario,
+        usuario.id_perfil_usuario,
+        cpf_usuario
+      ]);
+
+      const updatedCpfUsuario = result.rows[0].cpf_usuario;
+
+      await client.query('COMMIT');
+
+      res.json({ message: 'Usuário atualizado corretamente', cpf_usuario: updatedCpfUsuario });
+    } catch (error) {
+      await client.query('ROLLBACK');
+      res.status(500).json({ error: 'Erro ao executar a consulta' });
+    } finally {
+      client.release();
+    }
+  });
+};
