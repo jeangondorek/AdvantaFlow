@@ -152,6 +152,8 @@ create database projetointegrador;
 
 \c projetointegrador;
 
+SET datestyle = 'ISO, YMD';
+
 create table perfil (
     id_perfil serial not null,
     descricao_perfil varchar(150) not null,
