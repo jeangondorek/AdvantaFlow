@@ -51,11 +51,11 @@ export function validateProcesso(processo: Processo): string[] {
     errors.push('O id_fase_processo deve ser um número inteiro.');
   }
 
-  if (!isString(processo.cpf_cnpj_cliente_processo, 14, 14)) {
+  if (!isString(processo.cpf_cnpj_cliente_processo, 11, 14)) {
     errors.push('O cpf_cnpj_cliente_processo deve ter exatamente 14 caracteres.');
   }
 
-  if (!isString(processo.cpf_usuario_processo, 11, 11)) {
+  if (!isString(processo.cpf_usuario_processo, 10, 11)) {
     errors.push('O cpf_usuario_processo deve ter exatamente 11 caracteres.');
   }
 

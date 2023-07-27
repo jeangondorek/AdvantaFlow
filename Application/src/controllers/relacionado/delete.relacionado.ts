@@ -16,14 +16,6 @@ export const deleteRelacionado = async (req: any, res: any) => {
                 return res.json('Registro não encontrado. Nada foi excluído.');
             }
 
-            const checkFKQuery = "SELECT * FROM tarefa WHERE id_relacionado_tarefa = $1";
-            const checkFKResult = await client.query(checkFKQuery, [req.params.id_relacionado]);
-
-            if (checkFKResult.rows.length > 0) {
-                await client.query('ROLLBACK');
-                return res.json('Não é possível excluir o registro. Está associado a outra tabela.');
-            }
-
             const deleteQuery = "DELETE FROM relacionado WHERE id_relacionado = $1";
             await client.query(deleteQuery, [req.params.id_relacionado]);
 

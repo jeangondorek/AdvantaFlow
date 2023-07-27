@@ -15,7 +15,7 @@ export class Processo {
       this.descricao_processo = data.descricao_processo;
       this.titulo_processo = data.titulo_processo;
       this.resultado_processo = data.resultado_processo || null;
-      this.data_criacao_processo = new Date(data.data_criacao_processo);
+      this.data_criacao_processo =  data.data_criacao_processo;
       this.id_comarca_processo = data.id_comarca_processo;
       this.id_assunto_processo = data.id_assunto_processo;
       this.id_fase_processo = data.id_fase_processo;

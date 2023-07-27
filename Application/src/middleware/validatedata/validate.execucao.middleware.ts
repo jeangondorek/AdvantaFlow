@@ -11,7 +11,7 @@ export function validateExecucao(execucao: Execucao): string[] {
     return Number.isInteger(value);
   }
   
-  if (!isString(execucao.cpf_usuario_execucao, 11, 11)) {
+  if (!isString(execucao.cpf_usuario_execucao, 10, 11)) {
     errors.push('O cpf_usuario_execucao deve ter exatamente 11 caracteres.');
   }
 

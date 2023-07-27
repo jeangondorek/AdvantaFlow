@@ -29,7 +29,7 @@ export const updateFase = async (req: any, res: any) => {
       
       const updateFaseQuery = `
         UPDATE fase 
-        SET descricao_fase = $1,
+        SET descricao_fase = $1
         WHERE id_fase = $2
         RETURNING id_fase`;
 

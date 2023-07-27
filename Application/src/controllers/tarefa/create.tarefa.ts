@@ -4,7 +4,6 @@ import { validateTarefa } from "../../middleware/validatedata/validate.tarefa.mi
 import { Tarefa } from "../../models/tarefa.model";
 
 export const createTarefa = async (req: any, res: any) => {
-  validateData(Tarefa)(req, res, async () => {
     const tarefaData = req.body;
     const tarefa = new Tarefa(tarefaData);
 
@@ -21,14 +20,14 @@ export const createTarefa = async (req: any, res: any) => {
       await client.query('BEGIN');
 
       const insertTarefaQuery = `
-        INSERT INTO tarefa (
-          funcao_tarefa,
-          detalhes_tarefa,
-          data_criacao_tarefa,
-          id_processo_tarefa
-        )
-        VALUES ($1, $2, $3, $4)
-        RETURNING id_tarefa`;
+      INSERT INTO tarefa (
+        funcao_tarefa,
+        detalhes_tarefa,
+        data_criacao_tarefa,
+        id_processo_tarefa
+      )
+      VALUES ($1, $2, $3, $4)
+      RETURNING id_tarefa`;
 
       const result = await client.query(insertTarefaQuery, [
         tarefa.funcao_tarefa,
@@ -36,6 +35,7 @@ export const createTarefa = async (req: any, res: any) => {
         tarefa.data_criacao_tarefa,
         tarefa.id_processo_tarefa
       ]);
+
 
       const insertedTarefaId = result.rows[0].id_tarefa;
 
@@ -48,5 +48,4 @@ export const createTarefa = async (req: any, res: any) => {
     } finally {
       client.release();
     }
-  });
 };

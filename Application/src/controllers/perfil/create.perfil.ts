@@ -27,6 +27,8 @@ export const createPerfil = async (req: any, res: any) => {
 
       const result = await client.query(insertPerfilQuery, [
         perfil.descricao_perfil,
+        perfil.permissoes_perfil,
+        perfil.permissoes_opcional_perfil,
       ]);
 
       const insertedPerfilId = result.rows[0].id_perfil;

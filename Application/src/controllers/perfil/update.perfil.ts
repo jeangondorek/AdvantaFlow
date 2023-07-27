@@ -30,8 +30,8 @@ export const updatePerfil = async (req: any, res: any) => {
       const updatePerfilQuery = `
         UPDATE perfil 
         SET descricao_perfil = $1,
-        permissoes_perfil =$2,
-        permissoes_opcional_perfil = $3,
+        permissoes_perfil = $2,
+        permissoes_opcional_perfil = $3
         WHERE id_perfil = $4
         RETURNING id_perfil`;
 

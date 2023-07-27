@@ -26,7 +26,7 @@ export const updateExecucao = async (req: any, res: any) => {
       if (selectResult.rows.length < 1) {
         return res.json('Registro não encontrado. Nada foi atualizado.');
       }
-      
+
       const updateExecucaoQuery = `
         UPDATE execucao 
         SET cpf_usuario_execucao = $1,
@@ -35,9 +35,11 @@ export const updateExecucao = async (req: any, res: any) => {
         RETURNING id_execucao`;
 
       const result = await client.query(updateExecucaoQuery, [
-        execucao.descricao_execucao,
+        execucao.cpf_usuario_execucao,
+        execucao.id_processo_execucao,
         id_execucao
       ]);
+
 
       const updatedIdExecucao = result.rows[0].id_execucao;
 

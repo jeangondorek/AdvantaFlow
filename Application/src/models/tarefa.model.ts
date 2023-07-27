@@ -7,7 +7,7 @@ export class Tarefa {
     constructor(data: any) {
       this.funcao_tarefa = data.funcao_tarefa;
       this.detalhes_tarefa = data.detalhes_tarefa || null;
-      this.data_criacao_tarefa = new Date(data.data_criacao_tarefa);
+      this.data_criacao_tarefa = data.data_criacao_tarefa;
       this.id_processo_tarefa = data.id_processo_tarefa;
     }
   }
