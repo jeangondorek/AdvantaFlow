@@ -1,10 +1,10 @@
-PORT=
-NODE_ENV=
-ORIGIN=
-JWT_SECRET=
+PORT=3032
+NODE_ENV=production
+ORIGIN=*
+JWT_SECRET=13245
 
-DB_PORT=
-DB_PASS=
-DB_USER=
-DB_HOST=
-DB_NAME=
+DB_PORT=5432
+DB_PASS=postgres
+DB_USER=postgres
+DB_HOST=localhost
+DB_NAME=projetointegrador

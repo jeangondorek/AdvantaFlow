@@ -1,10 +1,8 @@
 import { pool } from "../../imports";
 
 export const deleteAssunto = async (req: any, res: any) => {
-    pool.connect(async (error, client, release) => {
-        if (error) {
-            return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
-        }
+    try{
+        const client = await pool.connect();
 
         try {
             await client.query('BEGIN');
@@ -34,7 +32,9 @@ export const deleteAssunto = async (req: any, res: any) => {
             await client.query('ROLLBACK');
             res.status(500).json({ error: 'Erro ao executar a consulta' });
         } finally {
-            release();
+            client.release();
         }
-    });
+    }catch(erro){
+        return res.status(500).json({ error: 'Erro ao obter conexão do banco de dados' });
+    }
 };
