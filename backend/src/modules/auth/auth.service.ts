@@ -32,12 +32,20 @@ export class AuthService {
   }
 
   async login(cpf: string, senha: string) {
-    const user = await this.validateUser(cpf, senha);
-    if (!user) throw new UnauthorizedException('Credenciais inválidas');
-    const payload = { sub: user.cpf, perfil: user.perfilId };
-    return {
-      access_token: this.jwtService.sign(payload),
-      user,
-    };
+    try {
+      const user = await this.validateUser(cpf, senha);
+      if (!user) {
+        console.error('Login falhou: usuário ou senha inválidos', { cpf });
+        throw new UnauthorizedException('Credenciais inválidas');
+      }
+      const payload = { sub: user.cpf, perfil: user.perfilId };
+      return {
+        access_token: this.jwtService.sign(payload),
+        user,
+      };
+    } catch (err) {
+      console.error('Erro no login:', err);
+      throw err;
+    }
   }
 }
