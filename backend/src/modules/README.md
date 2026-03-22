@@ -1,0 +1,1 @@
+Este diretório conterá os módulos principais do backend: auth, users, profiles, clients, processes, tasks, etc.
