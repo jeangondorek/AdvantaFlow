@@ -1,12 +1,16 @@
-import { useState } from 'react';
+
+'use client';
+import { useState, useEffect } from 'react';
 import { isAuthenticated } from '../utils/auth';
 import { useRouter } from 'next/router';
+
 
 export default function UploadPage() {
   const [file, setFile] = useState<File | null>(null);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
+  const [checkedAuth, setCheckedAuth] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -36,10 +40,16 @@ export default function UploadPage() {
     }
   };
 
-  if (!isAuthenticated()) {
-    router.push('/login');
-    return null;
-  }
+
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      router.replace('/login');
+    } else {
+      setCheckedAuth(true);
+    }
+  }, []);
+
+  if (!checkedAuth) return null;
 
   return (
     <div style={{ maxWidth: 400, margin: 'auto', padding: 32 }}>
