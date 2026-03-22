@@ -12,11 +12,23 @@ export class AuthService {
 
   async validateUser(cpf: string, senha: string) {
     const user = await this.usersService.findByCpf(cpf);
-    if (user && await bcrypt.compare(senha, user.senha)) {
-      const { senha, ...result } = user;
-      return result;
+    if (!user) {
+      console.error('Usuário não encontrado para CPF:', cpf);
+      return null;
     }
-    return null;
+    let senhaOk = false;
+    try {
+      senhaOk = await bcrypt.compare(senha, user.senha);
+    } catch (e) {
+      console.error('Erro ao comparar senha:', e);
+      return null;
+    }
+    if (!senhaOk) {
+      console.error('Senha inválida para CPF:', cpf);
+      return null;
+    }
+    const { senha: _, ...result } = user;
+    return result;
   }
 
   async login(cpf: string, senha: string) {
