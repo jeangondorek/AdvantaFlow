@@ -11,75 +11,129 @@ datasource db {
 }
 
 model Usuario {
-  id        Int      @id @default(autoincrement())
-  cpf       String   @unique
-  nome      String
-  status    Boolean  @default(true)
-  telefone  String?
-  oab       String?
-  senha     String
-  perfilId  Int
-  perfil    Perfil   @relation(fields: [perfilId], references: [id])
-  tarefas   Tarefa[]
-  processos Processo[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  cpf         String   @id @map("cpf_usuario")
+  nome        String   @map("nome_usuario")
+  status      String   @map("status_usuario")
+  telefone    String   @map("telefone_usuario")
+  oab         String?  @map("oab_usuario")
+  senha       String   @map("senha_hash_usuario")
+  perfilId    Int      @map("id_perfil_usuario")
+  perfil      Perfil   @relation(fields: [perfilId], references: [id])
+  processos   Processo[] @relation("UsuarioProcessos")
+  execucoes   Execucao[] @relation("UsuarioExecucoes")
+  relacionados Relacionado[] @relation("UsuarioRelacionados")
 }
 
 model Perfil {
-  id          Int       @id @default(autoincrement())
-  descricao   String
-  permissoes  String    // JSON string or comma-separated permissions
+  id          Int      @id @default(autoincrement()) @map("id_perfil")
+  descricao   String   @map("descricao_perfil")
+  permissoes  String   @map("permissoes_perfil")
+  permissoes_opcional String? @map("permissoes_opcional_perfil")
   usuarios    Usuario[]
 }
 
 model Cliente {
-  id         Int      @id @default(autoincrement())
-  nome       String
-  email      String   @unique
-  cpfCnpj    String   @unique
-  rg         String?
-  sexo       String?
-  profissao  String?
-  endereco   String?
-  contatos   String?  // JSON string or comma-separated
-  indicacao  String?
+  cpfCnpj    String   @id @map("cpf_cnpj_cliente")
+  nome       String   @map("nome_cliente")
+  email      String   @map("email_cliente")
+  rg         String?  @map("rg_cliente")
+  sexo       String?  @map("sexo_cliente")
+  profissao  String?  @map("profissao_cliente")
+  cep        String   @map("cep_cliente")
+  uf         String   @map("uf_cliente")
+  bairro     String   @map("bairro_cliente")
+  endereco   String   @map("endereco_cliente")
+  codigoMunicipio String @map("codigo_municipio_cliente")
+  nacionalidade String? @map("nacionalidade")
+  dataNascimento DateTime? @map("data_nascimento_cliente")
+  telefone   String?  @map("telefone_cliente")
+  celular    String   @map("celular_cliente")
+  idIndicacao Int?    @map("id_indicacao_cliente")
+  indicacao  Indicacao? @relation(fields: [idIndicacao], references: [id])
   processos  Processo[]
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
 }
 
 model Processo {
-  id           Int      @id @default(autoincrement())
-  numero       String   @unique
-  descricao    String
-  titulo       String
-  resultado    String?
-  dataAbertura DateTime
-  dataFechamento DateTime?
-  comarca      String?
-  assunto      String?
-  fase         String?
-  clienteId    Int
-  cliente      Cliente  @relation(fields: [clienteId], references: [id])
-  usuarioId    Int
-  usuario      Usuario  @relation(fields: [usuarioId], references: [id])
+  id           Int      @id @default(autoincrement()) @map("id_processo")
+  numeroCnpj   String   @map("numero_cnpj_processo")
+  descricao    String   @map("descricao_processo")
+  titulo       String   @map("titulo_processo")
+  resultado    String?  @map("resultado_processo")
+  dataCriacao  DateTime @map("data_criacao_processo")
+  idComarca    Int      @map("id_comarca_processo")
+  idAssunto    Int      @map("id_assunto_processo")
+  idFase       Int      @map("id_fase_processo")
+  cpfCnpjCliente String @map("cpf_cnpj_cliente_processo")
+  cpfUsuario   String   @map("cpf_usuario_processo")
+  cliente      Cliente  @relation(fields: [cpfCnpjCliente], references: [cpfCnpj])
+  usuario      Usuario  @relation("UsuarioProcessos", fields: [cpfUsuario], references: [cpf])
+  comarca      Comarca  @relation(fields: [idComarca], references: [id])
+  assunto      Assunto  @relation(fields: [idAssunto], references: [id])
+  fase         Fase     @relation(fields: [idFase], references: [id])
   tarefas      Tarefa[]
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  execucoes    Execucao[]
+}
+model Comarca {
+  id         Int      @id @default(autoincrement()) @map("id_comarca")
+  descricao  String   @map("descricao_comarca")
+  processos  Processo[]
+}
+
+model Assunto {
+  id         Int      @id @default(autoincrement()) @map("id_assunto")
+  descricao  String   @map("descricao_assunto")
+  processos  Processo[]
+}
+
+model Fase {
+  id         Int      @id @default(autoincrement()) @map("id_fase")
+  descricao  String   @map("descricao_fase")
+  processos  Processo[]
+}
+
+model Indicacao {
+  id         Int      @id @default(autoincrement()) @map("id_indicacao")
+  descricao  String   @map("descricao_indicacao")
+  detalhes   String?  @map("detalhes_indicacao")
+  clientes   Cliente[]
+}
+
+model Execucao {
+  id         Int      @id @default(autoincrement()) @map("id_execucao")
+  cpfUsuario String   @map("cpf_usuario_execucao")
+  idProcesso Int      @map("id_processo_execucao")
+  usuario    Usuario  @relation("UsuarioExecucoes", fields: [cpfUsuario], references: [cpf])
+  processo   Processo @relation(fields: [idProcesso], references: [id])
 }
 
 model Tarefa {
-  id          Int      @id @default(autoincrement())
-  funcao      String
-  detalhes    String
-  data        DateTime
-  processoId  Int
-  processo    Processo @relation(fields: [processoId], references: [id])
-  usuarioId   Int
-  usuario     Usuario  @relation(fields: [usuarioId], references: [id])
-  anexos      String?  // JSON string or comma-separated file paths
-  historico   String?  // JSON string or log
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id          Int      @id @default(autoincrement()) @map("id_tarefa")
+  funcao      String   @map("funcao_tarefa")
+  detalhes    String?  @map("detalhes_tarefa")
+  dataCriacao DateTime @map("data_criacao_tarefa")
+  idProcesso  Int      @map("id_processo_tarefa")
+  processo    Processo @relation(fields: [idProcesso], references: [id])
+  relacionados Relacionado[]
+  anexos      Anexo[]
 }
+
+model Relacionado {
+  id         Int      @id @default(autoincrement()) @map("id_relacionado")
+  cpfUsuario String   @map("cpf_usuario_relacionado")
+  idTarefa   Int      @map("id_tarefa_relacionado")
+  usuario    Usuario  @relation("UsuarioRelacionados", fields: [cpfUsuario], references: [cpf])
+  tarefa     Tarefa   @relation(fields: [idTarefa], references: [id])
+}
+
+model Anexo {
+  id         Int      @id @default(autoincrement()) @map("id_anexo")
+  idTarefa   Int      @map("id_tarefa_anexo")
+  nome       String?  @map("nome_anexo")
+  formato    String?  @map("formato_anexo")
+  tamanho    Int?     @map("tamanho_anexo")
+  dataCarregamento DateTime? @map("data_carregamento_anexo")
+  caminhoArquivo String? @map("caminho_arquivo_anexo")
+  tarefa     Tarefa   @relation(fields: [idTarefa], references: [id])
+}
+
+
