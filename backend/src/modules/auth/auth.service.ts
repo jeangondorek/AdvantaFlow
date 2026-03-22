@@ -34,7 +34,7 @@ export class AuthService {
   async login(cpf: string, senha: string) {
     const user = await this.validateUser(cpf, senha);
     if (!user) throw new UnauthorizedException('Credenciais inválidas');
-    const payload = { sub: user.id, perfil: user.perfilId };
+    const payload = { sub: user.cpf, perfil: user.perfilId };
     return {
       access_token: this.jwtService.sign(payload),
       user,
