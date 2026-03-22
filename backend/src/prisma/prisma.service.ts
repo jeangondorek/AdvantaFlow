@@ -10,11 +10,7 @@ export class PrismaService
     anexos: any;
     processos: any;
     profiles: any;
-    assunto: any;
-    indicacao: any;
     tribunal: any;
-    fase: any;
-    comarca: any;
   async onModuleInit() {
     await this.$connect();
   }
