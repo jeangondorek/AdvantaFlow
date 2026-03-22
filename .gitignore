@@ -1,4 +1,5 @@
 /*/node_modules/
+node_modules/
 /*/dist/
 /*/package-lock.json
 /*/build
@@ -8,3 +9,6 @@
 /*/*/*/package-lock.json
 /*/*/*/.env
 /*/.env
+.specify
+.vscode
+.github

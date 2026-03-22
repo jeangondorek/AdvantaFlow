@@ -1,22 +1,19 @@
 {
-  "name": "integrador",
+  "name": "advantaflow-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt dev",
-    "build": "nuxt build",
-    "start": "nuxt build && nuxt start",
-    "generate": "nuxt generate"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "core-js": "^3.25.3",
-    "nuxt": "^3.6.5",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
-    "vue-server-renderer": "^2.7.14",
-    "vue-template-compiler": "^2.7.14"
+    "axios": "^1.13.6",
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "postcss": "^8.4.27"
+    "typescript": "5.9.3"
   }
 }

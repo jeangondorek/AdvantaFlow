@@ -1,0 +1,85 @@
+// Prisma schema for AdvantaFlow
+// Models: Usuario, Perfil, Cliente, Processo, Tarefa
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id        Int      @id @default(autoincrement())
+  cpf       String   @unique
+  nome      String
+  status    Boolean  @default(true)
+  telefone  String?
+  oab       String?
+  senha     String
+  perfilId  Int
+  perfil    Perfil   @relation(fields: [perfilId], references: [id])
+  tarefas   Tarefa[]
+  processos Processo[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Perfil {
+  id          Int       @id @default(autoincrement())
+  descricao   String
+  permissoes  String    // JSON string or comma-separated permissions
+  usuarios    Usuario[]
+}
+
+model Cliente {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  email      String   @unique
+  cpfCnpj    String   @unique
+  rg         String?
+  sexo       String?
+  profissao  String?
+  endereco   String?
+  contatos   String?  // JSON string or comma-separated
+  indicacao  String?
+  processos  Processo[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Processo {
+  id           Int      @id @default(autoincrement())
+  numero       String   @unique
+  descricao    String
+  titulo       String
+  resultado    String?
+  dataAbertura DateTime
+  dataFechamento DateTime?
+  comarca      String?
+  assunto      String?
+  fase         String?
+  clienteId    Int
+  cliente      Cliente  @relation(fields: [clienteId], references: [id])
+  usuarioId    Int
+  usuario      Usuario  @relation(fields: [usuarioId], references: [id])
+  tarefas      Tarefa[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Tarefa {
+  id          Int      @id @default(autoincrement())
+  funcao      String
+  detalhes    String
+  data        DateTime
+  processoId  Int
+  processo    Processo @relation(fields: [processoId], references: [id])
+  usuarioId   Int
+  usuario     Usuario  @relation(fields: [usuarioId], references: [id])
+  anexos      String?  // JSON string or comma-separated file paths
+  historico   String?  // JSON string or log
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
